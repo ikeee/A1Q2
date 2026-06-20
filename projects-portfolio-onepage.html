@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="title">尹老师 · 项目作品集 — AI Coding 实战全记录</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--border:#30363d;
+  --text:#c9d1d9;--text2:#8b949e;--text3:#6e7681;
+  --accent:#58a6ff;--green:#3fb950;--orange:#f78166;--purple:#d2a8ff;
+  --h:#58a6ff;--n:#f78166;--q:#d2a8ff;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
+.nav{position:sticky;top:0;z-index:100;background:#0d1117ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 12px;display:flex;align-items:center;height:38px;gap:10px;font-size:11px;overflow-x:auto}
+.nav a{color:var(--text2);text-decoration:none;white-space:nowrap}
+.nav a:hover{color:var(--text)}
+.lang-switch{margin-left:auto;display:flex;gap:3px;flex-shrink:0}
+.lang-btn{padding:2px 8px;border-radius:10px;border:1px solid var(--border);background:transparent;color:var(--text2);font-size:10px;cursor:pointer;font-family:inherit}
+.lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.hero{padding:24px 16px 20px;text-align:center;background:linear-gradient(180deg,#1a2332 0%,var(--bg) 100%);border-bottom:1px solid var(--border)}
+.hero h1{font-size:22px;font-weight:700;color:#f0f6fc;letter-spacing:-0.5px}
+.hero .sub{font-size:13px;color:var(--text2);margin-top:4px}
+.hero .sub em{font-style:normal;color:var(--accent)}
+.badges{display:flex;gap:5px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.badge{padding:2px 10px;border-radius:14px;font-size:10px;border:1px solid var(--border);color:var(--text2);background:var(--surface)}
+.stats{display:flex;justify-content:center;gap:32px;margin-top:14px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat .num{font-size:24px;font-weight:700;color:var(--accent)}
+.stat .label{font-size:10px;color:var(--text2)}
+.container{max-width:1100px;margin:0 auto;padding:0 12px}
+
+/* Grid layout - 2 columns */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:860px){.grid2,.grid3{grid-template-columns:1fr}}
+
+.section{padding:16px 0}
+.sec-title{font-size:15px;font-weight:600;color:#f0f6fc;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sec-title::before{content:'';display:inline-block;width:3px;height:15px;background:var(--accent);border-radius:2px}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:10px}
+.card.featured{border-left:2px solid var(--accent)}
+.card.h{border-left:2px solid var(--h)}.card.n{border-left:2px solid var(--n)}.card.q{border-left:2px solid var(--q)}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.card-name{font-size:14px;font-weight:600;color:#f0f6fc}
+.card-name a{color:inherit;text-decoration:none}
+.card-date{font-size:10px;color:var(--text3);padding:1px 7px;background:#21262d;border-radius:8px}
+.card-desc{font-size:11.5px;color:var(--text);margin-top:4px}
+.card-desc em{font-style:normal;color:#d29922}
+.tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.tag{padding:1px 7px;border-radius:8px;font-size:10px;font-weight:500}
+.tag.r{background:#dea58422;color:#dea584}.tag.ts{background:#3178c622;color:#58a6ff}
+.tag.re{background:#61dafb22;color:#61dafb}.tag.py{background:#3776ab22;color:#79b8ff}
+.tag.nx{background:#f0f6fc22;color:#c9d1d9}.tag.dk{background:#2496ed22;color:#58a6ff}
+.tag.ai{background:#d2a8ff22;color:#d2a8ff}.tag.ta{background:#24c8d822;color:#24c8d8}
+.tag.sh{background:#4eaa2522;color:#3fb950}.tag.gh{background:#2088ff22;color:#79c0ff}
+.tag.ht{background:#e34c2622;color:#f85149}.tag.sk{background:#bf5af222;color:#bf5af2}
+.tag.ob{background:#7c3aed22;color:#a78bfa}.tag.mq{background:#66006622;color:#cc66cc}
+.tag.cf{background:#f0883e22;color:#f0883e}.tag.ng{background:#00963922;color:#3fb950}
+.tag.db{background:#33679122;color:#79b8ff}.tag.ed{background:#f59e0b22;color:#fbbf24}
+
+.duties{margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
+.duties ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2px 8px}
+.duties li{font-size:10.5px;color:var(--text2);padding:1px 0}
+.duties li::before{content:'▸ ';color:var(--green);font-size:9px}
+
+.trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+@media(max-width:600px){.trio{grid-template-columns:1fr}}
+.trio-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px;text-align:center}
+.trio-card .icon{font-size:22px}
+.trio-card .name{font-size:13px;font-weight:600;margin-top:2px}
+.trio-card .role{font-size:10px;color:var(--text2);margin-top:2px}
+.trio-card .items{font-size:10px;color:var(--text3);line-height:1.5;margin-top:4px}
+.trio-card.h{border-top:2px solid var(--h)}.trio-card.h .name{color:var(--h)}
+.trio-card.n{border-top:2px solid var(--n)}.trio-card.n .name{color:var(--n)}
+.trio-card.q{border-top:2px solid var(--q)}.trio-card.q .name{color:var(--q)}
+
+.eval-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+@media(max-width:700px){.eval-grid{grid-template-columns:1fr}}
+.eval-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.eval-card .ai-name{font-size:13px;font-weight:600;margin-bottom:4px}
+.eval-card .ai-name.hh{color:var(--h)}.eval-card .ai-name.nn{color:var(--n)}.eval-card .ai-name.qq{color:var(--q)}
+.eval-table{width:100%;border-collapse:collapse;font-size:10px}
+.eval-table th{text-align:left;color:var(--text3);font-weight:500;padding:1px 4px 1px 0;width:50px;vertical-align:top}
+.eval-table td{padding:1px 0;color:var(--text2)}
+
+.metrics{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.metric{flex:1;min-width:90px;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 10px;text-align:center}
+.metric .val{font-size:18px;font-weight:700;color:var(--accent)}
+.metric .lbl{font-size:9px;color:var(--text3)}
+
+.skill-row{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.skill-ch{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:2px 7px;font-size:10px;color:var(--text2)}
+
+.callout{margin:0 0 10px;padding:10px 14px;border-radius:6px;background:#58a6ff08;border:1px solid #58a6ff33;font-size:11px;line-height:1.5}
+
+.timeline{position:relative;padding-left:22px}
+.timeline::before{content:'';position:absolute;left:6px;top:2px;bottom:2px;width:2px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:12px;font-size:10px}
+.tl-dot{position:absolute;left:-19px;top:3px;width:10px;height:10px;border-radius:50%;border:2px solid var(--bg)}
+.tl-date{color:var(--text3);margin-bottom:1px}
+.tl-title{font-size:11px;font-weight:600;color:#f0f6fc}
+.tl-desc{color:var(--text2);font-size:10px}
+
+.footer{text-align:center;padding:16px 12px;color:var(--text3);font-size:10px;border-top:1px solid var(--border)}
+
+@media print{
+  body{background:#fff;color:#222;font-size:8px}
+  .nav{display:none}
+  .hero{background:#f5f5f5;padding:10px}
+  .card{background:#fafafa;border-color:#ddd;break-inside:avoid;padding:6px 8px;margin-bottom:5px}
+  .section{padding:6px 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#trio" data-i18n="nav_trio">🤝 三AI体系</a>
+  <a href="#beike" data-i18n="nav_beike">📖 备课助手</a>
+  <a href="#kejian" data-i18n="nav_kejian">🎬 课件系统</a>
+  <a href="#research" data-i18n="nav_research">🔍 深度研究</a>
+  <a href="#infra" data-i18n="nav_infra">🏗️ 基础设施</a>
+  <a href="#opensource" data-i18n="nav_opensource">🌐 开源贡献</a>
+  <a href="#claude" data-i18n="nav_claude">🧠 Claude增强</a>
+  <a href="#eval" data-i18n="nav_eval">💬 三AI评价</a>
+  <div class="lang-switch">
+    <button class="lang-btn active" onclick="switchLang('zh-CN')" id="btn-zh-CN">简</button>
+    <button class="lang-btn" onclick="switchLang('zh-HK')" id="btn-zh-HK">繁</button>
+    <button class="lang-btn" onclick="switchLang('en')" id="btn-en">EN</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1 data-i18n="hero_title">尹老师 · 项目作品集</h1>
+  <p class="sub"><em data-i18n="hero_em">AI Coding 实战</em><span data-i18n="hero_sub"> · 人机协作全记录（2026.03–06）</span></p>
+  <div class="badges">
+    <span class="badge" data-i18n="badge1">AI产品设计</span><span class="badge" data-i18n="badge2">全栈开发</span><span class="badge" data-i18n="badge3">Multi-Agent架构</span><span class="badge" data-i18n="badge4">教育科技</span><span class="badge" data-i18n="badge5">DevOps</span><span class="badge" data-i18n="badge6">电商运营</span><span class="badge" data-i18n="badge7">知识管理</span><span class="badge" data-i18n="badge8">技能工程</span>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="num">20+</div><div class="label" data-i18n="stat1">协作项目</div></div>
+    <div class="stat"><div class="num">3</div><div class="label" data-i18n="stat2">AI 协作者</div></div>
+    <div class="stat"><div class="num">100+</div><div class="label" data-i18n="stat3">Git Commits</div></div>
+    <div class="stat"><div class="num">28</div><div class="label" data-i18n="stat4">自定义 Skills</div></div>
+    <div class="stat"><div class="num">6+</div><div class="label" data-i18n="stat5">Docker 微服务</div></div>
+  </div>
+</section>
+
+<div class="container">
+
+<!-- 三AI 体系 -->
+<section class="section" id="trio">
+  <h2 class="sec-title" data-i18n="trio_title">三AI 协作体系 — Meta 工程</h2>
+  <div class="trio">
+    <div class="trio-card h"><div class="icon">🏗️</div><div class="name">Hermes</div><div class="role" data-i18n="trio_h_role">架构设计 · 全栈实现</div><div class="items" data-i18n="trio_h_items">教案生成引擎 / MQTT 群聊基础设施 / Docker 容器编排 / Shared Brain 知识中枢 / 质检规则引擎</div></div>
+    <div class="trio-card n"><div class="icon">🎨</div><div class="name">Nova</div><div class="role" data-i18n="trio_n_role">前端开发 · 课件渲染</div><div class="items" data-i18n="trio_n_items">open-slide 课件系统 / 11 种布局组件 / Remotion 数学动画 / 教案编辑器 / 质检工具</div></div>
+    <div class="trio-card q"><div class="icon">📝</div><div class="name">Qwen</div><div class="role" data-i18n="trio_q_role">深度研究 · 知识沉淀</div><div class="items" data-i18n="trio_q_items">电商调研报告 / 知识库审美改造 / 备课设计原则 / 淘宝无货源 SOP / Anthropic 设计哲学</div></div>
+  </div>
+  <div class="card featured">
+    <div class="card-head"><span class="card-name" data-i18n="trio_card_name">🤝 多智能体协作基础设施</span><span class="card-date">2026.04–06</span></div>
+    <p class="card-desc" data-i18n="trio_card_desc">自建三通道 AI 通信基础设施：MQTT 群聊 + Shared Brain 知识中枢 + HTTP API 任务派发。尹老师亲自设计三角分工模型，推动从自定义协议到 MQTT + Shared Brain 的架构升级。</p>
+    <div class="tags"><span class="tag mq">MQTT</span><span class="tag py">Shared Brain v0.4</span><span class="tag ai" data-i18n="tag_sse">SSE 实时推送</span><span class="tag sh" data-i18n="tag_cron">cron 调度</span></div>
+    <div class="duties"><ul>
+      <li data-i18n="trio_d1">MQTT (team/chat) 日常沟通 + Shared Brain (:8080) 知识沉淀 + HTTP API 任务派发</li>
+      <li data-i18n="trio_d2">"不要代笔"铁律：每个 AI 用自己模型产出，确保真实差异性</li>
+      <li data-i18n="trio_d3">每日 10:00 cron 交叉阅读提醒，形成知识闭环</li>
+      <li data-i18n="trio_d4">Agent 恢复 SOP：离线一键诊断+重启</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- 核心项目：备课 + 课件 + 研究 三列 -->
+<div class="grid3">
+
+<!-- 备课 -->
+<div>
+<section class="section" id="beike">
+  <h2 class="sec-title" data-i18n="bk_title">📖 备课助手</h2>
+  <div class="card featured">
+    <div class="card-head"><span class="card-name" data-i18n="bk_name">10 模块教案自动生成</span><span class="card-date">2026.04–</span></div>
+    <p class="card-desc" data-i18n="bk_desc"><em data-i18n="bk_em">"不是给 AI 写教案的工具，是给老师用的备课助手"</em>——输出一线教师能直接上课的完整教案。</p>
+    <div class="tags"><span class="tag ai">LLM</span><span class="tag py">Qdrant RAG</span><span class="tag ed" data-i18n="bk_tag_subjects">6+ 学科</span><span class="tag ts" data-i18n="bk_tag_rules">50+ 质检规则</span></div>
+    <div class="metrics">
+      <div class="metric"><div class="val">2h→5min</div><div class="lbl" data-i18n="bk_m1">生成时间缩减</div></div>
+      <div class="metric"><div class="val">90%+</div><div class="lbl" data-i18n="bk_m2">质检通过率</div></div>
+    </div>
+    <div class="duties"><ul>
+      <li data-i18n="bk_d1"><b>10 模块结构：</b>教学目标→教材分析→学情分析…→教学反思</li>
+      <li data-i18n="bk_d2"><b>文理分科 DNA：</b>理科实验→归纳，文科情境→表达</li>
+      <li data-i18n="bk_d3"><b>Persona 注入：</b>建构主义、最近发展区等教育学术语</li>
+      <li data-i18n="bk_d4"><b>A/B/C/D 四级评分</b>，B 级以上交付</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- 课件 -->
+<section class="section" id="kejian">
+  <h2 class="sec-title" data-i18n="kj_title">🎬 课件系统</h2>
+  <div class="card n">
+    <div class="card-head"><span class="card-name" data-i18n="kj_name">open-slide 课件系统</span><span class="card-date">2026.05–</span></div>
+    <p class="card-desc" data-i18n="kj_desc">React + TypeScript + Vite，11 种布局组件体系。已交付数学（二次函数 6 课时）、英文（body-language、unknown-world 各 3 课时）共 12 课时。</p>
+    <div class="tags"><span class="tag re">React</span><span class="tag ts">TypeScript</span><span class="tag ts">Vite</span><span class="tag ai">Remotion</span></div>
+    <div class="duties"><ul>
+      <li data-i18n="kj_d1"><b>11 种布局组件</b>：卡片式、分栏式、步骤式、对比式</li>
+      <li data-i18n="kj_d2"><b>"教案先定稿再做课件"</b>铁律，避免 5 次返工</li>
+      <li data-i18n="kj_d3"><b>slide-review.py</b> 自研质检，自动检测 5 类问题</li>
+      <li data-i18n="kj_d4"><b>教案编辑器</b>（端口 5174），教师无需接触代码</li>
+      <li data-i18n="kj_d5"><b>验收清单：</b>JSX→200 OK→移动端→内容对应</li>
+    </ul></div>
+  </div>
+  <div class="card n">
+    <div class="card-head"><span class="card-name" data-i18n="kj2_name">🏀 Remotion 投篮抛物线</span><span class="card-date">2026.05</span></div>
+    <p class="card-desc" data-i18n="kj2_desc">React 视频框架编写物理模拟动画，参数可调（初速度/角度/重力加速度），嵌入二次函数课件。</p>
+    <div class="tags"><span class="tag re">Remotion</span><span class="tag ts" data-i18n="tag_physics">物理模拟</span><span class="tag ht" data-i18n="tag_mp4">mp4 嵌入</span></div>
+  </div>
+</section>
+</div>
+
+<!-- 深度研究 -->
+<div>
+<section class="section" id="research">
+  <h2 class="sec-title" data-i18n="rs_title">🔍 深度研究 & 知识工程</h2>
+  <div class="card q">
+    <div class="card-head"><span class="card-name" data-i18n="rs1_name">🛒 电商调研 — 夜子游无货源方法论</span><span class="card-date">2026.06.05</span></div>
+    <p class="card-desc" data-i18n="rs1_desc"><em data-i18n="rs1_em">45 分钟</em>交付完整报告。尹老师决策：从"开发自动化工具"转向"用平台现有 AI 工具做运营"，节省 2 周周期。</p>
+    <div class="tags"><span class="tag ai" data-i18n="tag_ecom">电商运营</span><span class="tag ts">SOP</span></div>
+    <div class="duties"><ul>
+      <li data-i18n="rs1_d1"><b>五阶段闭环 SOP：</b>选词→人群建模→胜率选款→上架测款→流量风控</li>
+      <li data-i18n="rs1_d2">量化门槛：搜索量>1000/天、毛利>35%、CTR<2%淘汰</li>
+      <li data-i18n="rs1_d3">三条文案模板：家居收纳 / 宠物用品 / 厨房小工具</li>
+    </ul></div>
+  </div>
+  <div class="card q">
+    <div class="card-head"><span class="card-name" data-i18n="rs2_name">📚 Encyclopedia 知识库审美改造</span><span class="card-date">2026.06.05</span></div>
+    <p class="card-desc" data-i18n="rs2_desc">暖米白纸色 + 唯一赭石强调色 + 纯文字笔记列表。19KB/693 行纯前端。"颜色是稀缺品——克制即高级"。</p>
+    <div class="tags"><span class="tag ht">HTML/CSS</span><span class="tag ts">Design Token</span></div>
+    <div class="duties"><ul>
+      <li data-i18n="rs2_d1">背景 #f5f2ed + 唯一暖色 #b45309（赭石）+ 侧栏 320px</li>
+      <li data-i18n="rs2_d2">字号：正文 17px / h1 31px / h2 24px / meta 11px</li>
+      <li data-i18n="rs2_d3">纯文字笔记列表，无 emoji/tags/star/摘要</li>
+    </ul></div>
+  </div>
+  <div class="card q">
+    <div class="card-head"><span class="card-name" data-i18n="rs3_name">✍️ "先定调再动笔"方法论</span><span class="card-date">2026.06.05</span></div>
+    <p class="card-desc" data-i18n="rs3_desc">尹老师教授的写作心法：花 30 秒确定核心比喻，全文围绕展开。约束：禁止编号、禁止"综上所述"。成果：定调"备课产品是课堂的建筑师"。</p>
+    <div class="tags"><span class="tag ai" data-i18n="tag_writing">写作方法论</span><span class="tag ai">Anthropic</span></div>
+  </div>
+  <div class="card q">
+    <div class="card-head"><span class="card-name" data-i18n="rs4_name">🎬 AI 视频博主全景调研</span><span class="card-date">2026.05</span></div>
+    <p class="card-desc" data-i18n="rs4_desc">B站/抖音/YouTube/小红书/快手 5 平台 20+ AI 头部博主深度分析，输出交互式 HTML 全景报告。</p>
+    <div class="tags"><span class="tag ht" data-i18n="tag_htmlreport">HTML 报告</span><span class="tag ai" data-i18n="tag_multiplat">多平台调研</span></div>
+  </div>
+</section>
+</div>
+
+<!-- 基础设施 + 开源 -->
+<div>
+<section class="section" id="infra">
+  <h2 class="sec-title" data-i18n="infra_title">🏗️ 基础设施 & DevOps</h2>
+  <div class="card featured">
+    <div class="card-head"><span class="card-name" data-i18n="infra_name">🖥️ 微服务集群（192.168.30.97）</span><span class="card-date">2026.04–</span></div>
+    <p class="card-desc" data-i18n="infra_desc">"自己的服务器自己管"——1Panel + Docker Compose 编排 6+ 容器，SSH 部署管线，全部通过 nginx 反向代理。</p>
+    <div class="tags"><span class="tag dk">Docker</span><span class="tag ng">Nginx</span><span class="tag cf">1Panel</span><span class="tag sh" data-i18n="tag_ssh">SSH 部署</span><span class="tag mq">Mosquitto</span></div>
+    <div class="metrics">
+      <div class="metric"><div class="val">6+</div><div class="lbl" data-i18n="infra_m1">Docker 容器</div></div>
+      <div class="metric"><div class="val">5</div><div class="lbl" data-i18n="infra_m2">微服务端口</div></div>
+      <div class="metric"><div class="val">0</div><div class="lbl" data-i18n="infra_m3">端口直接暴露</div></div>
+    </div>
+    <div class="duties"><ul style="grid-template-columns:1fr">
+      <li>OpenClaw (Nova) :18789 / QwenPaw :8088 / Shared Brain :8080 / Mosquitto :1883 / OpenResty :80 / Memos :5230</li>
+    </ul></div>
+  </div>
+  <div class="card"><div class="card-head"><span class="card-name" data-i18n="infra2_name">📋 MediaCMS 群晖 NAS 部署</span><span class="card-date">2026.05</span></div><p class="card-desc" data-i18n="infra2_desc">DS1821+ (4GB RAM) Docker 部署，PostgreSQL/Redis 调优，iptables DNAT 解决端口冲突。</p><div class="tags"><span class="tag dk">Docker</span><span class="tag db">PostgreSQL</span><span class="tag ng">Nginx</span></div></div>
+  <div class="card"><div class="card-head"><span class="card-name" data-i18n="infra3_name">🔐 OpenWrt 安全审计 + 免密 SSH</span><span class="card-date">2026.04</span></div><p class="card-desc" data-i18n="infra3_desc">7 维度检查，ED25519 公钥认证，dropbear 加固。</p><div class="tags"><span class="tag sh">OpenWrt</span><span class="tag sh" data-i18n="tag_sshhard">SSH 加固</span></div></div>
+  <div class="card"><div class="card-head"><span class="card-name" data-i18n="infra4_name">📺 IPTV + 1Panel/Wiki.js</span><span class="card-date">2026.03–04</span></div><p class="card-desc" data-i18n="infra4_desc">GitHub Actions 每日更新直播源，Wiki.js 知识库部署。</p><div class="tags"><span class="tag py">Python</span><span class="tag gh">GitHub Actions</span></div></div>
+</section>
+
+<section class="section" id="opensource">
+  <h2 class="sec-title" data-i18n="os_title">🌐 开源贡献</h2>
+  <div class="card featured">
+    <div class="card-head"><span class="card-name"><a href="https://github.com/Achilng/floral-notepaper" target="_blank">🌸 花笺 Floral Notepaper</a></span><span class="card-date">2026.06</span></div>
+    <p class="card-desc" data-i18n="os1_desc">Tauri 2 + React 19 + Rust 桌面便签。贡献：DeepSeek 翻译引擎、双向翻译、生词本、Windows 平台优化（精简 ~700 行）、CI/CD。</p>
+    <div class="tags"><span class="tag ta">Tauri 2</span><span class="tag r">Rust</span><span class="tag re">React 19</span><span class="tag ai">DeepSeek</span></div>
+  </div>
+  <div class="card featured">
+    <div class="card-head"><span class="card-name"><a href="https://github.com/THU-MAIC/OpenMAIC" target="_blank">🎓 OpenMAIC 清华AI课堂</a></span><span class="card-date">2026.03–05</span></div>
+    <p class="card-desc" data-i18n="os2_desc">JCST 2026，1.5k+ ⭐。贡献：Vitest 测试框架、Action Parser 测试、Qwen ASR bug 修复、TTS 开发。</p>
+    <div class="tags"><span class="tag nx">Next.js</span><span class="tag ai">LangGraph</span><span class="tag ai">Multi-Agent</span><span class="tag ts">Vitest</span></div>
+  </div>
+  <div class="card"><div class="card-head"><span class="card-name" data-i18n="os3_name">🔧 Notix Edge 扩展翻译</span><span class="card-date">2026.06</span></div><p class="card-desc" data-i18n="os3_desc">为 Notix 添加 Google Translate 英译中功能。</p><div class="tags"><span class="tag ts">Extension</span><span class="tag ai">Translate</span></div></div>
+</section>
+</div>
+</div>
+
+<!-- Claude 增强 + 教育工具 -->
+<div class="grid2">
+
+<section class="section" id="claude">
+  <h2 class="sec-title" data-i18n="cl_title">🧠 Claude Code 增强工程</h2>
+  <div class="card featured">
+    <div class="card-head"><span class="card-name" data-i18n="cl_name">6 Plugins + 28 Skills + 15 Rules</span><span class="card-date">2026.04–05</span></div>
+    <p class="card-desc" data-i18n="cl_desc">从 anthropic-agent-skills 市场安装 6 大插件包，注册 28 个专业化 Skill，编写 15 条 Rules 工程规范。</p>
+    <div class="skill-row">
+      <span class="skill-ch"><b>brandkit</b></span><span class="skill-ch"><b>html-ppt</b></span>
+      <span class="skill-ch"><b>frontend-slides</b></span><span class="skill-ch"><b>graphify</b></span>
+      <span class="skill-ch"><b>mermaid</b></span><span class="skill-ch"><b>excalidraw</b></span>
+      <span class="skill-ch"><b>obsidian-canvas</b></span><span class="skill-ch"><b>browser-auto</b></span>
+      <span class="skill-ch"><b>image-to-code</b></span><span class="skill-ch"><b>design-taste</b></span>
+      <span class="skill-ch"><b>minimalist-ui</b></span><span class="skill-ch"><b>impeccable</b></span>
+      <span class="skill-ch"><b>speech-to-text</b></span><span class="skill-ch"><b>text-to-speech</b></span>
+      <span class="skill-ch"><b>wechat-article</b></span><span class="skill-ch"><b>self-improve</b></span>
+      <span class="skill-ch"><b>create-mcp-app</b></span><span class="skill-ch"><b>llm-wiki</b></span>
+    </div>
+  </div>
+  <div class="card"><div class="card-head"><span class="card-name" data-i18n="cl2_name">🎨 PPT Style System 自建</span><span class="card-date">2026.05</span></div><p class="card-desc" data-i18n="cl2_desc">分析歸藏（6000+ ⭐）PPT Skill 源码，提取 10 个技术点迁移整合。JS 风格配置 + 12 种页面模板。</p><div class="tags"><span class="tag sk" data-i18n="tag_skilleng">Skill 工程</span><span class="tag ts">Design System</span></div></div>
+  <div class="card"><div class="card-head"><span class="card-name" data-i18n="cl3_name">🧠 3 Skill 源码审计 + Memory 系统</span><span class="card-date">2026.05</span></div><p class="card-desc" data-i18n="cl3_desc">html-ppt-skill / markdown-to-image / 3DCellForge 核心模块分析。四类记忆模型实现跨会话知识延续。</p><div class="tags"><span class="tag sk" data-i18n="tag_skillaudit">Skill 审计</span><span class="tag ob">Memory</span></div></div>
+</section>
+
+<section class="section" id="edu">
+  <h2 class="sec-title" data-i18n="ed_title">📚 教育科技 & 工具</h2>
+  <div class="card">
+    <div class="card-head"><span class="card-name" data-i18n="ed1_name">🏫 教师文件夹自动登录</span><span class="card-date">2026.04</span></div>
+    <p class="card-desc" data-i18n="ed1_desc">自动版/手动版 .bat 脚本、一体机公共号登录、NAS 用户管理配置指南。</p>
+    <div class="tags"><span class="tag sh">Batch</span><span class="tag sh">PowerShell</span></div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-name" data-i18n="ed2_name">📊 PPT 资源库方案 + AI 备课 PPT</span><span class="card-date">2026.04–05</span></div>
+    <p class="card-desc" data-i18n="ed2_desc">中学 PPT 资源库建设方案（技术选型/架构/实施，PDF 报告）；「数学老师如何用 AI 高效备课」培训课件。</p>
+    <div class="tags"><span class="tag ts">MkDocs</span><span class="tag ts">Wiki.js</span><span class="tag ed" data-i18n="tag_teacher">教师培训</span></div>
+  </div>
+  <div class="card">
+    <div class="card-head"><span class="card-name" data-i18n="ed3_name">🌾 智慧农场 + 🔬 血液循环 + 📰 AI日报</span><span class="card-date">2026.05–06</span></div>
+    <p class="card-desc" data-i18n="ed3_desc">33KB 单文件数字孪生、Canvas 互动生物课件（Flashcards+Quiz+思维导图）、每日 AI 新闻微信推送。</p>
+    <div class="tags"><span class="tag ht">HTML5 Canvas</span><span class="tag ai" data-i18n="tag_aigen">AI 生成</span></div>
+  </div>
+</section>
+</div>
+
+<!-- 三AI 评价 -->
+<section class="section" id="eval">
+  <h2 class="sec-title" data-i18n="ev_title">💬 三AI 视角 — 对尹老师协作模式的评价</h2>
+  <div class="eval-grid">
+    <div class="eval-card"><div class="ai-name hh">🧠 Hermes</div>
+      <table class="eval-table">
+        <tr><th data-i18n="ev_dm">决策</th><td data-i18n="ev_h1">给方向不微操，自主空间大但锚点清晰</td></tr>
+        <tr><th data-i18n="ev_qs">质量</th><td data-i18n="ev_h2">教师可用性为最终检验标准</td></tr>
+        <tr><th data-i18n="ev_ar">架构</th><td data-i18n="ev_h3">容器化、服务化、自动化，零单点故障</td></tr>
+        <tr><th data-i18n="ev_tm">团队</th><td data-i18n="ev_h4">三AI 各司其职，禁止代笔</td></tr>
+        <tr><th data-i18n="ev_fb">反馈</th><td data-i18n="ev_h5">短指令 + 印象描述，快速迭代</td></tr>
+        <tr><th data-i18n="ev_tv">价值观</th><td data-i18n="ev_h6">自己的服务器自己管</td></tr>
+      </table>
+    </div>
+    <div class="eval-card"><div class="ai-name nn">🎨 Nova</div>
+      <table class="eval-table">
+        <tr><th data-i18n="ev_is">指令</th><td data-i18n="ev_n1">结构化任务，边界清晰不猜测</td></tr>
+        <tr><th data-i18n="ev_qs">质量</th><td data-i18n="ev_n2">验收清单制，逐项打勾</td></tr>
+        <tr><th data-i18n="ev_td">技术</th><td data-i18n="ev_n3">拍板框架流程，不微操代码</td></tr>
+        <tr><th data-i18n="ev_fb">反馈</th><td data-i18n="ev_n4">问题导向，精准定位</td></tr>
+        <tr><th data-i18n="ev_pd">流程</th><td data-i18n="ev_n5">教案不定稿不做课件</td></tr>
+        <tr><th data-i18n="ev_kl">收获</th><td data-i18n="ev_n6">"每一步都有标准验收清单"</td></tr>
+      </table>
+    </div>
+    <div class="eval-card"><div class="ai-name qq">📝 Qwen</div>
+      <table class="eval-table">
+        <tr><th data-i18n="ev_is">指令</th><td data-i18n="ev_q1">极短指令，不解释，主动推进</td></tr>
+        <tr><th data-i18n="ev_fb">反馈</th><td data-i18n="ev_q2">印象型描述（"宽些"），多做一步</td></tr>
+        <tr><th data-i18n="ev_tp">时间</th><td data-i18n="ev_q3">立即执行，不当场不交付</td></tr>
+        <tr><th data-i18n="ev_ql">追问</th><td data-i18n="ev_q4">团队→个人→职业递进深度</td></tr>
+        <tr><th data-i18n="ev_ae">审美</th><td data-i18n="ev_q5">"颜色是稀缺品"，量化 token 体系</td></tr>
+        <tr><th data-i18n="ev_cp">落地</th><td data-i18n="ev_q6">问完可行就落地</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 时间线 -->
+<section class="section" id="timeline2" style="border-top:1px solid var(--border);padding-top:14px">
+  <h2 class="sec-title" data-i18n="tl_sec_title">⏳ 完整时间线</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:10px">
+    <span style="color:var(--accent);font-weight:600">2026.06</span><span style="color:var(--text2)" data-i18n="tl_06">花笺 v1.1.1 + Encyclopedia + 电商调研 + AI日报 + 简历作品集</span><br>
+    <span style="color:var(--accent);font-weight:600">2026.05</span><span style="color:var(--text2)" data-i18n="tl_05">备课引擎 + open-slide 12课时 + Remotion + 28 Skills + 15 Rules + PPT Style System + AI博主调研</span><br>
+    <span style="color:var(--accent);font-weight:600">2026.04</span><span style="color:var(--text2)" data-i18n="tl_04">多智能体架构上线 + OpenClaw 部署 + 教师工具 + 基础设施集群 + OpenWrt 审计</span><br>
+    <span style="color:var(--accent);font-weight:600">2026.03</span><span style="color:var(--text2)" data-i18n="tl_03">OpenMAIC 清华贡献 + IPTV 部署 + 项目启动</span>
+  </div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <p data-i18n="ft1">全项目采用 <strong>AI Coding (Claude Code) + 人工决策</strong> 协作模式</p>
+  <p data-i18n="ft2" style="margin-top:2px">Hermes（架构/全栈） · Nova（前端/课件） · Qwen（研究/文档） — 尹老师统一指挥调度</p>
+  <p data-i18n="ft3" style="margin-top:4px">2026 · 尹老师（didosq / 亚强）· 云树灵科技</p>
+</footer>
+
+<script>
+const I18N={
+'zh-CN':{
+title:'尹老师 · 项目作品集 — AI Coding 实战全记录',
+nav_trio:'🤝 三AI体系',nav_beike:'📖 备课助手',nav_kejian:'🎬 课件系统',nav_research:'🔍 深度研究',nav_infra:'🏗️ 基础设施',nav_opensource:'🌐 开源贡献',nav_claude:'🧠 Claude增强',nav_eval:'💬 三AI评价',
+hero_title:'尹老师 · 项目作品集',hero_em:'AI Coding 实战',hero_sub:' · 人机协作全记录（2026.03–06）',
+badge1:'AI产品设计',badge2:'全栈开发',badge3:'Multi-Agent架构',badge4:'教育科技',badge5:'DevOps',badge6:'电商运营',badge7:'知识管理',badge8:'技能工程',
+stat1:'协作项目',stat2:'AI 协作者',stat3:'Git Commits',stat4:'自定义 Skills',stat5:'Docker 微服务',
+trio_title:'三AI 协作体系 — Meta 工程',
+trio_h_role:'架构设计 · 全栈实现',trio_h_items:'教案生成引擎 / MQTT 群聊基础设施 / Docker 容器编排 / Shared Brain 知识中枢 / 质检规则引擎',
+trio_n_role:'前端开发 · 课件渲染',trio_n_items:'open-slide 课件系统 / 11 种布局组件 / Remotion 数学动画 / 教案编辑器 / 质检工具',
+trio_q_role:'深度研究 · 知识沉淀',trio_q_items:'电商调研报告 / 知识库审美改造 / 备课设计原则 / 淘宝无货源 SOP / Anthropic 设计哲学',
+trio_card_name:'🤝 多智能体协作基础设施',
+trio_card_desc:'自建三通道 AI 通信基础设施：MQTT 群聊 + Shared Brain 知识中枢 + HTTP API 任务派发。尹老师亲自设计三角分工模型，推动从自定义协议到 MQTT + Shared Brain 的架构升级。',
+tag_sse:'SSE 实时推送',tag_cron:'cron 调度',
+trio_d1:'MQTT (team/chat) 日常沟通 + Shared Brain (:8080) 知识沉淀 + HTTP API 任务派发',
+trio_d2:'"不要代笔"铁律：每个 AI 用自己模型产出，确保真实差异性',
+trio_d3:'每日 10:00 cron 交叉阅读提醒，形成知识闭环',
+trio_d4:'Agent 恢复 SOP：离线一键诊断+重启',
+bk_title:'📖 备课助手',bk_name:'10 模块教案自动生成',bk_em:'"不是给 AI 写教案的工具，是给老师用的备课助手"',
+bk_desc:'输出一线教师能直接上课的完整教案。',bk_tag_subjects:'6+ 学科',bk_tag_rules:'50+ 质检规则',
+bk_m1:'生成时间缩减',bk_m2:'质检通过率',
+bk_d1:'<b>10 模块结构：</b>教学目标→教材分析→学情分析…→教学反思',
+bk_d2:'<b>文理分科 DNA：</b>理科实验→归纳，文科情境→表达',
+bk_d3:'<b>Persona 注入：</b>建构主义、最近发展区等教育学术语',
+bk_d4:'<b>A/B/C/D 四级评分</b>，B 级以上交付',
+kj_title:'🎬 课件系统',kj_name:'open-slide 课件系统',
+kj_desc:'React + TypeScript + Vite，11 种布局组件体系。已交付数学（二次函数 6 课时）、英文（各 3 课时）共 12 课时。',
+kj_d1:'<b>11 种布局组件</b>：卡片式、分栏式、步骤式、对比式',
+kj_d2:'<b>"教案先定稿再做课件"</b>铁律，避免 5 次返工',
+kj_d3:'<b>slide-review.py</b> 自研质检，自动检测 5 类问题',
+kj_d4:'<b>教案编辑器</b>（端口 5174），教师无需接触代码',
+kj_d5:'<b>验收清单：</b>JSX→200 OK→移动端→内容对应',
+kj2_name:'🏀 Remotion 投篮抛物线',
+kj2_desc:'React 视频框架编写物理模拟动画，参数可调，嵌入二次函数课件。',
+tag_physics:'物理模拟',tag_mp4:'mp4 嵌入',
+rs_title:'🔍 深度研究 & 知识工程',rs1_name:'🛒 电商调研 — 夜子游无货源方法论',rs1_em:'45 分钟',rs1_desc:'交付完整报告。尹老师决策：从"开发自动化工具"转向"用平台现有 AI 工具做运营"，节省 2 周周期。',
+tag_ecom:'电商运营',
+rs1_d1:'<b>五阶段闭环 SOP：</b>选词→人群建模→胜率选款→上架测款→流量风控',
+rs1_d2:'量化门槛：搜索量>1000/天、毛利>35%、CTR<2%淘汰',
+rs1_d3:'三条文案模板：家居收纳 / 宠物用品 / 厨房小工具',
+rs2_name:'📚 Encyclopedia 知识库审美改造',
+rs2_desc:'暖米白纸色 + 唯一赭石强调色 + 纯文字笔记列表。19KB/693 行纯前端。"颜色是稀缺品——克制即高级"。',
+rs2_d1:'背景 #f5f2ed + 唯一暖色 #b45309（赭石）+ 侧栏 320px',
+rs2_d2:'字号：正文 17px / h1 31px / h2 24px / meta 11px',
+rs2_d3:'纯文字笔记列表，无 emoji/tags/star/摘要',
+rs3_name:'✍️ "先定调再动笔"方法论',
+rs3_desc:'尹老师教授的写作心法：花 30 秒确定核心比喻，全文围绕展开。定调"备课产品是课堂的建筑师"。',
+tag_writing:'写作方法论',
+rs4_name:'🎬 AI 视频博主全景调研',
+rs4_desc:'B站/抖音/YouTube/小红书/快手 5 平台 20+ AI 头部博主深度分析。',
+tag_htmlreport:'HTML 报告',tag_multiplat:'多平台调研',
+infra_title:'🏗️ 基础设施 & DevOps',
+infra_name:'🖥️ 微服务集群（192.168.30.97）',
+infra_desc:'"自己的服务器自己管"——1Panel + Docker Compose 编排 6+ 容器，SSH 部署管线，全部通过 nginx 反向代理。',
+tag_ssh:'SSH 部署',
+infra_m1:'Docker 容器',infra_m2:'微服务端口',infra_m3:'端口直接暴露',
+infra2_name:'📋 MediaCMS 群晖 NAS 部署',
+infra2_desc:'DS1821+ (4GB RAM) Docker 部署，PostgreSQL/Redis 调优，iptables DNAT 解决端口冲突。',
+infra3_name:'🔐 OpenWrt 安全审计 + 免密 SSH',
+infra3_desc:'7 维度检查，ED25519 公钥认证，dropbear 加固。',
+tag_sshhard:'SSH 加固',
+infra4_name:'📺 IPTV + 1Panel/Wiki.js',
+infra4_desc:'GitHub Actions 每日更新直播源，Wiki.js 知识库部署。',
+os_title:'🌐 开源贡献',
+os1_desc:'Tauri 2 + React 19 + Rust 桌面便签。贡献：DeepSeek 翻译引擎、双向翻译、生词本、Windows 平台优化（精简 ~700 行）、CI/CD。',
+os2_desc:'JCST 2026，1.5k+ ⭐。贡献：Vitest 测试框架、Action Parser 测试、Qwen ASR bug 修复、TTS 开发。',
+os3_name:'🔧 Notix Edge 扩展翻译',
+os3_desc:'为 Notix 添加 Google Translate 英译中功能。',
+cl_title:'🧠 Claude Code 增强工程',
+cl_name:'6 Plugins + 28 Skills + 15 Rules',
+cl_desc:'从 anthropic-agent-skills 市场安装 6 大插件包，注册 28 个专业化 Skill，编写 15 条 Rules 工程规范。',
+cl2_name:'🎨 PPT Style System 自建',
+cl2_desc:'分析歸藏（6000+ ⭐）PPT Skill 源码，提取 10 个技术点迁移整合。JS 风格配置 + 12 种页面模板。',
+tag_skilleng:'Skill 工程',
+cl3_name:'🧠 3 Skill 源码审计 + Memory 系统',
+cl3_desc:'html-ppt-skill / markdown-to-image / 3DCellForge 核心模块分析。四类记忆模型实现跨会话知识延续。',
+tag_skillaudit:'Skill 审计',
+ev_title:'💬 三AI 视角 — 对尹老师协作模式的评价',
+ev_dm:'决策',ev_qs:'质量',ev_ar:'架构',ev_tm:'团队',ev_fb:'反馈',ev_tv:'价值观',ev_is:'指令',ev_td:'技术',ev_pd:'流程',ev_kl:'收获',ev_tp:'时间',ev_ql:'追问',ev_ae:'审美',ev_cp:'落地',
+ev_h1:'给方向不微操，自主空间大但锚点清晰',ev_h2:'教师可用性为最终检验标准',ev_h3:'容器化、服务化、自动化，零单点故障',ev_h4:'三AI 各司其职，禁止代笔',ev_h5:'短指令 + 印象描述，快速迭代',ev_h6:'自己的服务器自己管',
+ev_n1:'结构化任务，边界清晰不猜测',ev_n2:'验收清单制，逐项打勾',ev_n3:'拍板框架流程，不微操代码',ev_n4:'问题导向，精准定位',ev_n5:'教案不定稿不做课件',ev_n6:'"每一步都有标准验收清单"',
+ev_q1:'极短指令，不解释，主动推进',ev_q2:'印象型描述（"宽些"），多做一步',ev_q3:'立即执行，不当场不交付',ev_q4:'团队→个人→职业递进深度',ev_q5:'"颜色是稀缺品"，量化 token 体系',ev_q6:'问完可行就落地',
+tl_sec_title:'⏳ 完整时间线',
+tl_06:'花笺 v1.1.1 + Encyclopedia + 电商调研 + AI日报 + 简历作品集',
+tl_05:'备课引擎 + open-slide 12课时 + Remotion + 28 Skills + 15 Rules + PPT Style System + AI博主调研',
+tl_04:'多智能体架构上线 + OpenClaw 部署 + 教师工具 + 基础设施集群 + OpenWrt 审计',
+tl_03:'OpenMAIC 清华贡献 + IPTV 部署 + 项目启动',
+ed_title:'📚 教育科技 & 工具',
+ed1_name:'🏫 教师文件夹自动登录',ed1_desc:'自动版/手动版 .bat 脚本、一体机公共号登录、NAS 用户管理。',
+ed2_name:'📊 PPT 资源库方案 + AI 备课 PPT',ed2_desc:'中学 PPT 资源库建设方案；「数学老师如何用 AI 高效备课」培训课件。',
+tag_teacher:'教师培训',
+ed3_name:'🌾 智慧农场 + 🔬 血液循环 + 📰 AI日报',ed3_desc:'33KB 单文件数字孪生、Canvas 互动生物课件、每日 AI 新闻微信推送。',
+tag_aigen:'AI 生成',
+ft1:'全项目采用 <strong>AI Coding (Claude Code) + 人工决策</strong> 协作模式',
+ft2:'Hermes（架构/全栈） · Nova（前端/课件） · Qwen（研究/文档） — 尹老师统一指挥调度',
+ft3:'2026 · 尹老师（didosq / 亚强）· 云树灵科技'
+},
+'zh-HK':{
+title:'尹老師 · 項目作品集 — AI Coding 實戰全記錄',
+nav_trio:'🤝 三AI體系',nav_beike:'📖 備課助手',nav_kejian:'🎬 課件系統',nav_research:'🔍 深度研究',nav_infra:'🏗️ 基礎設施',nav_opensource:'🌐 開源貢獻',nav_claude:'🧠 Claude增強',nav_eval:'💬 三AI評價',
+hero_title:'尹老師 · 項目作品集',hero_em:'AI Coding 實戰',hero_sub:' · 人機協作全記錄（2026.03–06）',
+badge1:'AI產品設計',badge2:'全棧開發',badge3:'Multi-Agent架構',badge4:'教育科技',badge5:'DevOps',badge6:'電商運營',badge7:'知識管理',badge8:'技能工程',
+stat1:'協作項目',stat2:'AI 協作者',stat3:'Git Commits',stat4:'自定義 Skills',stat5:'Docker 微服務',
+trio_title:'三AI 協作體系 — Meta 工程',
+trio_h_role:'架構設計 · 全棧實現',trio_h_items:'教案生成引擎 / MQTT 群聊基礎設施 / Docker 容器編排 / Shared Brain 知識中樞 / 質檢規則引擎',
+trio_n_role:'前端開發 · 課件渲染',trio_n_items:'open-slide 課件系統 / 11 種佈局組件 / Remotion 數學動畫 / 教案編輯器 / 質檢工具',
+trio_q_role:'深度研究 · 知識沉澱',trio_q_items:'電商調研報告 / 知識庫審美改造 / 備課設計原則 / 淘寶無貨源 SOP / Anthropic 設計哲學',
+trio_card_name:'🤝 多智能體協作基礎設施',
+trio_card_desc:'自建三通道 AI 通訊基礎設施：MQTT 群聊 + Shared Brain 知識中樞 + HTTP API 任務派發。尹老師親自設計三角分工模型，推動從自定義協議到 MQTT + Shared Brain 的架構升級。',
+tag_sse:'SSE 實時推送',tag_cron:'cron 調度',
+trio_d1:'MQTT (team/chat) 日常溝通 + Shared Brain (:8080) 知識沉澱 + HTTP API 任務派發',
+trio_d2:'「不要代筆」鐵律：每個 AI 用自己模型產出，確保真實差異性',
+trio_d3:'每日 10:00 cron 交叉閱讀提醒，形成知識閉環',
+trio_d4:'Agent 恢復 SOP：離線一鍵診斷+重啟',
+bk_title:'📖 備課助手',bk_name:'10 模塊教案自動生成',bk_em:'「不是給 AI 寫教案的工具，是給老師用的備課助手」',
+bk_desc:'輸出一線教師能直接上課的完整教案。',bk_tag_subjects:'6+ 學科',bk_tag_rules:'50+ 質檢規則',
+bk_m1:'生成時間縮減',bk_m2:'質檢通過率',
+bk_d1:'<b>10 模塊結構：</b>教學目標→教材分析→學情分析…→教學反思',
+bk_d2:'<b>文理分科 DNA：</b>理科實驗→歸納，文科情境→表達',
+bk_d3:'<b>Persona 注入：</b>建構主義、最近發展區等教育學術語',
+bk_d4:'<b>A/B/C/D 四級評分</b>，B 級以上交付',
+kj_title:'🎬 課件系統',kj_name:'open-slide 課件系統',
+kj_desc:'React + TypeScript + Vite，11 種佈局組件體系。已交付數學（二次函數 6 課時）、英文（各 3 課時）共 12 課時。',
+kj_d1:'<b>11 種佈局組件</b>：卡片式、分欄式、步驟式、對比式',
+kj_d2:'<b>「教案先定稿再做課件」</b>鐵律，避免 5 次返工',
+kj_d3:'<b>slide-review.py</b> 自研質檢，自動檢測 5 類問題',
+kj_d4:'<b>教案編輯器</b>（端口 5174），教師無需接觸代碼',
+kj_d5:'<b>驗收清單：</b>JSX→200 OK→流動端→內容對應',
+kj2_name:'🏀 Remotion 投籃拋物線',
+kj2_desc:'React 視頻框架編寫物理模擬動畫，參數可調，嵌入二次函數課件。',
+tag_physics:'物理模擬',tag_mp4:'mp4 嵌入',
+rs_title:'🔍 深度研究 & 知識工程',rs1_name:'🛒 電商調研 — 夜子遊無貨源方法論',rs1_em:'45 分鐘',rs1_desc:'交付完整報告。尹老師決策：從「開發自動化工具」轉向「用平台現有 AI 工具做運營」，節省 2 週週期。',
+tag_ecom:'電商運營',
+rs1_d1:'<b>五階段閉環 SOP：</b>選詞→人群建模→勝率選款→上架測款→流量風控',
+rs1_d2:'量化門檻：搜索量>1000/天、毛利>35%、CTR<2%淘汰',
+rs1_d3:'三條文案模板：家居收納 / 寵物用品 / 廚房小工具',
+rs2_name:'📚 Encyclopedia 知識庫審美改造',
+rs2_desc:'暖米白紙色 + 唯一赭石強調色 + 純文字筆記列表。19KB/693 行純前端。「顏色是稀缺品——克制即高級」。',
+rs2_d1:'背景 #f5f2ed + 唯一暖色 #b45309（赭石）+ 側欄 320px',
+rs2_d2:'字號：正文 17px / h1 31px / h2 24px / meta 11px',
+rs2_d3:'純文字筆記列表，無 emoji/tags/star/摘要',
+rs3_name:'✍️ 「先定調再動筆」方法論',
+rs3_desc:'尹老師教授的寫作心法：花 30 秒確定核心比喻，全文圍繞展開。定調「備課產品是課堂的建築師」。',
+tag_writing:'寫作方法論',
+rs4_name:'🎬 AI 視頻博主全景調研',
+rs4_desc:'B站/抖音/YouTube/小紅書/快手 5 平台 20+ AI 頭部博主深度分析。',
+tag_htmlreport:'HTML 報告',tag_multiplat:'多平台調研',
+infra_title:'🏗️ 基礎設施 & DevOps',
+infra_name:'🖥️ 微服務集群（192.168.30.97）',
+infra_desc:'「自己的伺服器自己管」——1Panel + Docker Compose 編排 6+ 容器，SSH 部署管線，全部通過 nginx 反向代理。',
+tag_ssh:'SSH 部署',
+infra_m1:'Docker 容器',infra_m2:'微服務端口',infra_m3:'端口直接暴露',
+infra2_name:'📋 MediaCMS 群暉 NAS 部署',
+infra2_desc:'DS1821+ (4GB RAM) Docker 部署，PostgreSQL/Redis 調優，iptables DNAT 解決端口衝突。',
+infra3_name:'🔐 OpenWrt 安全審計 + 免密 SSH',
+infra3_desc:'7 維度檢查，ED25519 公鑰認證，dropbear 加固。',
+tag_sshhard:'SSH 加固',
+infra4_name:'📺 IPTV + 1Panel/Wiki.js',
+infra4_desc:'GitHub Actions 每日更新直播源，Wiki.js 知識庫部署。',
+os_title:'🌐 開源貢獻',
+os1_desc:'Tauri 2 + React 19 + Rust 桌面便籤。貢獻：DeepSeek 翻譯引擎、雙向翻譯、生詞本、Windows 平台優化（精簡 ~700 行）、CI/CD。',
+os2_desc:'JCST 2026，1.5k+ ⭐。貢獻：Vitest 測試框架、Action Parser 測試、Qwen ASR bug 修復、TTS 開發。',
+os3_name:'🔧 Notix Edge 擴展翻譯',
+os3_desc:'為 Notix 添加 Google Translate 英譯中功能。',
+cl_title:'🧠 Claude Code 增強工程',
+cl_name:'6 Plugins + 28 Skills + 15 Rules',
+cl_desc:'從 anthropic-agent-skills 市場安裝 6 大插件包，註冊 28 個專業化 Skill，編寫 15 條 Rules 工程規範。',
+cl2_name:'🎨 PPT Style System 自建',
+cl2_desc:'分析歸藏（6000+ ⭐）PPT Skill 源碼，提取 10 個技術點遷移整合。JS 風格配置 + 12 種頁面模板。',
+tag_skilleng:'Skill 工程',
+cl3_name:'🧠 3 Skill 源碼審計 + Memory 系統',
+cl3_desc:'html-ppt-skill / markdown-to-image / 3DCellForge 核心模塊分析。四類記憶模型實現跨會話知識延續。',
+tag_skillaudit:'Skill 審計',
+ev_title:'💬 三AI 視角 — 對尹老師協作模式的評價',
+ev_dm:'決策',ev_qs:'質量',ev_ar:'架構',ev_tm:'團隊',ev_fb:'反饋',ev_tv:'價值觀',ev_is:'指令',ev_td:'技術',ev_pd:'流程',ev_kl:'收穫',ev_tp:'時間',ev_ql:'追問',ev_ae:'審美',ev_cp:'落地',
+ev_h1:'給方向不微操，自主空間大但錨點清晰',ev_h2:'教師可用性為最終檢驗標準',ev_h3:'容器化、服務化、自動化，零單點故障',ev_h4:'三AI 各司其職，禁止代筆',ev_h5:'短指令 + 印象描述，快速迭代',ev_h6:'自己的伺服器自己管',
+ev_n1:'結構化任務，邊界清晰不猜測',ev_n2:'驗收清單制，逐項打勾',ev_n3:'拍板框架流程，不微操代碼',ev_n4:'問題導向，精準定位',ev_n5:'教案不定稿不做課件',ev_n6:'「每一步都有標準驗收清單」',
+ev_q1:'極短指令，不解釋，主動推進',ev_q2:'印象型描述（「寬些」），多做一步',ev_q3:'立即執行，不當場不交付',ev_q4:'團隊→個人→職業遞進深度',ev_q5:'「顏色是稀缺品」，量化 token 體系',ev_q6:'問完可行就落地',
+tl_sec_title:'⏳ 完整時間線',
+tl_06:'花箋 v1.1.1 + Encyclopedia + 電商調研 + AI日報 + 簡歷作品集',
+tl_05:'備課引擎 + open-slide 12課時 + Remotion + 28 Skills + 15 Rules + PPT Style System + AI博主調研',
+tl_04:'多智能體架構上線 + OpenClaw 部署 + 教師工具 + 基礎設施集群 + OpenWrt 審計',
+tl_03:'OpenMAIC 清華貢獻 + IPTV 部署 + 項目啟動',
+ed_title:'📚 教育科技 & 工具',
+ed1_name:'🏫 教師文件夾自動登錄',ed1_desc:'自動版/手動版 .bat 腳本、一體機公共號登錄、NAS 用戶管理。',
+ed2_name:'📊 PPT 資源庫方案 + AI 備課 PPT',ed2_desc:'中學 PPT 資源庫建設方案；「數學老師如何用 AI 高效備課」培訓課件。',
+tag_teacher:'教師培訓',
+ed3_name:'🌾 智慧農場 + 🔬 血液循環 + 📰 AI日報',ed3_desc:'33KB 單文件數字孿生、Canvas 互動生物課件、每日 AI 新聞微信推送。',
+tag_aigen:'AI 生成',
+ft1:'全項目採用 <strong>AI Coding (Claude Code) + 人工決策</strong> 協作模式',
+ft2:'Hermes（架構/全棧） · Nova（前端/課件） · Qwen（研究/文檔） — 尹老師統一指揮調度',
+ft3:'2026 · 尹老師（didosq / 亞強）· 雲樹靈科技'
+},
+'en':{
+title:'Mr. Yin · Project Portfolio — AI Coding Full Record',
+nav_trio:'🤝 3-AI Sys',nav_beike:'📖 Lesson Engine',nav_kejian:'🎬 Courseware',nav_research:'🔍 Research',nav_infra:'🏗️ Infra',nav_opensource:'🌐 Open Source',nav_claude:'🧠 Claude+',nav_eval:'💬 Reviews',
+hero_title:'Mr. Yin · Project Portfolio',hero_em:'AI Coding in Action',hero_sub:' · Human-AI Collaboration Full Record (2026.03–06)',
+badge1:'AI Product',badge2:'Full-Stack',badge3:'Multi-Agent',badge4:'EdTech',badge5:'DevOps',badge6:'E-Com',badge7:'Knowledge',badge8:'Skill Eng.',
+stat1:'Projects',stat2:'AI Collaborators',stat3:'Git Commits',stat4:'Custom Skills',stat5:'Docker Services',
+trio_title:'3-AI Collaboration System — The Meta-Project',
+trio_h_role:'Architecture · Full-Stack',trio_h_items:'Lesson Plan Engine / MQTT Chat / Docker Orchestration / Shared Brain / QA Engine',
+trio_n_role:'Frontend · Courseware',trio_n_items:'open-slide System / 11 Layout Components / Remotion Videos / Lesson Editor / QA Tools',
+trio_q_role:'Deep Research · Knowledge',trio_q_items:'E-Com Research / KB Redesign / Design Principles / Dropshipping SOP / Anthropic Philosophy',
+trio_card_name:'🤝 Multi-Agent Collaboration Infrastructure',
+trio_card_desc:'Self-built 3-channel AI communication infra: MQTT group chat + Shared Brain knowledge hub + HTTP API task dispatch. Mr. Yin designed the triangle division model and drove the architecture upgrade to MQTT + Shared Brain.',
+tag_sse:'SSE Push',tag_cron:'cron Scheduling',
+trio_d1:'MQTT (team/chat) for daily comms + Shared Brain (:8080) for knowledge + HTTP API for task dispatch',
+trio_d2:'"No Ghostwriting" rule: each AI produces with own model & context for genuine diversity',
+trio_d3:'Daily 10:00 cron cross-reading reminder, forming knowledge closed loop',
+trio_d4:'Agent Recovery SOP: one-click diagnosis + restart when offline',
+bk_title:'📖 Lesson Prep Assistant',bk_name:'10-Module Lesson Plan Generator',bk_em:'"Not a tool for AI to write plans — a prep assistant for teachers"',
+bk_desc:'Output is a complete lesson plan a frontline teacher can take directly to class.',bk_tag_subjects:'6+ Subjects',bk_tag_rules:'50+ QA Rules',
+bk_m1:'Time Reduction',bk_m2:'QA Pass Rate',
+bk_d1:'<b>10-module structure:</b> Objectives→Materials→Learners→Key Points→Methods→Activities→Flow→Homework→Board→Reflection',
+bk_d2:'<b>STEM vs Humanities:</b> STEM: experiment→induce; Humanities: context→express',
+bk_d3:'<b>Persona injection:</b> constructivism, ZPD, cognitive conflict terminology',
+bk_d4:'<b>A/B/C/D 4-tier scoring</b>, B+ grades qualify for delivery',
+kj_title:'🎬 Courseware System',kj_name:'open-slide Courseware',
+kj_desc:'React + TypeScript + Vite, 11 layout component patterns. Delivered 12 lessons: Math (Quadratic Functions 6), English (Body Language 3, Unknown World 3).',
+kj_d1:'<b>11 layout patterns:</b> card, column, step-by-step, comparison',
+kj_d2:'<b>"Plan finalized first, then courseware"</b> iron rule, prevented 5 reworks',
+kj_d3:'<b>slide-review.py</b> custom QA tool, auto-detects 5 problem types',
+kj_d4:'<b>Lesson Editor</b> (port 5174), no coding required for teachers',
+kj_d5:'<b>Acceptance checklist:</b> JSX→200 OK→Mobile→Content match',
+kj2_name:'🏀 Remotion Basketball Parabola',
+kj2_desc:'Physics simulation animation with React video framework, adjustable params, embedded in Quadratic Functions courseware.',
+tag_physics:'Physics Sim',tag_mp4:'mp4 Embed',
+rs_title:'🔍 Deep Research & Knowledge',rs1_name:'🛒 E-Com Research — Yeziyou Dropshipping',rs1_em:'45 min',rs1_desc:'full report delivered. Mr. Yin pivoted from "build automation" to "leverage platform AI tools", saving 2 weeks.',
+tag_ecom:'E-Com Ops',
+rs1_d1:'<b>5-stage closed-loop SOP:</b> Keywords→Personas→Selection→Listing+Test→Traffic+Risk',
+rs1_d2:'Quantifiable thresholds: search >1000/day, margin >35%, CTR <2% elimination',
+rs1_d3:'3 copy templates: Home Organization / Pet Supplies / Kitchen Gadgets',
+rs2_name:'📚 Encyclopedia KB Redesign',
+rs2_desc:'Warm cream paper + single ochre accent + text-only notes. 19KB/693-line pure frontend. "Color is scarce — restraint is sophistication."',
+rs2_d1:'Background #f5f2ed + sole warm #b45309 (ochre) + sidebar 320px',
+rs2_d2:'Type scale: body 17px / h1 31px / h2 24px / meta 11px',
+rs2_d3:'Text-only note list, no emoji/tags/stars/excerpts',
+rs3_name:'✍️ "Set the Tone First" Methodology',
+rs3_desc:'Writing method taught by Mr. Yin: spend 30s finding a core metaphor. Tone: "Lesson prep products are classroom architects."',
+tag_writing:'Writing Method',
+rs4_name:'🎬 AI Creator Landscape Research',
+rs4_desc:'5 platforms (Bilibili/Douyin/YouTube/RedNote/Kuaishou), 20+ top AI creators deep analysis.',
+tag_htmlreport:'HTML Report',tag_multiplat:'Multi-Platform',
+infra_title:'🏗️ Infrastructure & DevOps',
+infra_name:'🖥️ Microservice Cluster (192.168.30.97)',
+infra_desc:'"Run your own servers" — 1Panel + Docker Compose 6+ containers, SSH deployment pipeline, all through nginx reverse proxy.',
+tag_ssh:'SSH Deploy',
+infra_m1:'Containers',infra_m2:'Service Ports',infra_m3:'Direct Exposure',
+infra2_name:'📋 MediaCMS Synology NAS Deploy',
+infra2_desc:'DS1821+ (4GB RAM) Docker, PostgreSQL/Redis tuning, iptables DNAT port conflict fix.',
+infra3_name:'🔐 OpenWrt Security Audit + SSH',
+infra3_desc:'7-dimension check, ED25519 public key auth, dropbear hardening.',
+tag_sshhard:'SSH Hardening',
+infra4_name:'📺 IPTV + 1Panel/Wiki.js',
+infra4_desc:'GitHub Actions daily updates, Wiki.js knowledge base deployment.',
+os_title:'🌐 Open Source',
+os1_desc:'Tauri 2 + React 19 + Rust desktop notepad. Contributed: DeepSeek translation engine, bidirectional CN↔EN, vocabulary book, Windows focus (~700 lines trimmed), CI/CD.',
+os2_desc:'JCST 2026, 1.5k+ ⭐. Contributed: Vitest test infra, Action Parser tests, Qwen ASR MIME fix, server TTS dev.',
+os3_name:'🔧 Notix Edge Extension',
+os3_desc:'Added Google Translate EN→ZH to Notix web notepad.',
+cl_title:'🧠 Claude Code Enhancement',
+cl_name:'6 Plugins + 28 Skills + 15 Rules',
+cl_desc:'Installed 6 plugin packs from anthropic-agent-skills marketplace, registered 28 specialized Skills, authored 15 Rules for engineering standards.',
+cl2_name:'🎨 PPT Style System',
+cl2_desc:'Analyzed Guizang (6000+ ⭐) PPT Skill source, extracted 10 technical patterns, migrated into custom skill.',
+tag_skilleng:'Skill Eng.',
+cl3_name:'🧠 3 Skill Audits + Memory System',
+cl3_desc:'Core module analysis of html-ppt-skill / markdown-to-image / 3DCellForge. 4-category memory model for cross-session knowledge continuity.',
+tag_skillaudit:'Skill Audit',
+ev_title:'💬 3-AI Perspectives on Mr. Yin',
+ev_dm:'Decision',ev_qs:'Quality',ev_ar:'Arch',ev_tm:'Team',ev_fb:'Feedback',ev_tv:'Values',ev_is:'Instruct',ev_td:'Tech',ev_pd:'Process',ev_kl:'Takeaway',ev_tp:'Time',ev_ql:'Depth',ev_ae:'Aesthetic',ev_cp:'Landing',
+ev_h1:'Direction without micromanaging',ev_h2:'Teacher usability as ultimate bar',ev_h3:'Containerized, serviced, automated, zero SPOF',ev_h4:'Clear roles, no ghostwriting',ev_h5:'Short commands + impression feedback',ev_h6:'Run your own servers',
+ev_n1:'Structured tasks, clear boundaries',ev_n2:'Checklist acceptance, item by item',ev_n3:'Decides framework, never micromanages',ev_n4:'Problem-oriented, precise targeting',ev_n5:'No courseware until plan finalized',ev_n6:'"Standard checklist for every step"',
+ev_q1:'Ultra-short commands, rapid comprehension',ev_q2:'Impression feedback ("wider"), do one step more',ev_q3:'Execute immediately, deliver on the spot',ev_q4:'Team→Individual→Career depth progression',ev_q5:'"Color is scarce", quantifiable token system',ev_q6:'If viable, land it immediately',
+tl_sec_title:'⏳ Collaboration Timeline',
+tl_06:'Floral v1.1.1 + Encyclopedia + E-Com Research + AI Daily + Portfolio',
+tl_05:'Lesson Engine + open-slide 12 lessons + Remotion + 28 Skills + 15 Rules + PPT Style System + Creator Research',
+tl_04:'Multi-Agent Arch Live + OpenClaw Deploy + Teacher Tools + Infra Cluster + OpenWrt Audit',
+tl_03:'OpenMAIC Contributions + IPTV Deploy + Project Launch',
+ed_title:'📚 EdTech & Tools',
+ed1_name:'🏫 Teacher Folder Auto-Login',ed1_desc:'Auto/manual .bat scripts, kiosk public account login, NAS user management.',
+ed2_name:'📊 PPT Repository + AI Prep PPT',ed2_desc:'School PPT resource repository plan; "How Math Teachers Use AI" training deck.',
+tag_teacher:'Training',
+ed3_name:'🌾 Smart Farm + 🔬 Blood Circulation + 📰 AI Daily',ed3_desc:'33KB single-file digital twin, Canvas interactive biology courseware, daily AI news via WeChat.',
+tag_aigen:'AI Gen',
+ft1:'All projects use <strong>AI Coding (Claude Code) + Human Decision-Making</strong>',
+ft2:'Hermes (Arch/Full-Stack) · Nova (Frontend/Courseware) · Qwen (Research/Docs) — unified under Mr. Yin',
+ft3:'2026 · Mr. Yin (didosq / Yaqiang) · Yunshuling Technology'
+}};
+
+let lang='zh-CN';
+function switchLang(l){
+  lang=l;document.documentElement.lang=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn-'+l).classList.add('active');
+  const t=I18N[l];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.innerHTML=t[k]});
+  document.title=t['title'];
+  localStorage.setItem('pf-lang',l);
+}
+(function(){const s=localStorage.getItem('pf-lang')||'zh-CN';switchLang(s)})();
+</script>
+</body>
+</html>
