@@ -1,57 +1,60 @@
-# 尹創強 — 個人簡歷
+# 尹創強
 
-**求職意向：運維開發工程師 / IT 基礎設施負責人 | 東莞 | 全職**
+**運維開發工程師 / IT 基礎設施負責人 | 東莞 | 全職**
 
-📞 18681121363 | 📧 ikeee@qq.com | ✉️ liaobu@gmail.com | 🔗 [github.com/ikeee](https://github.com/ikeee)
+📞 18681121363 · 📧 ikeee@qq.com · ✉️ liaobu@gmail.com · 🔗 [github.com/ikeee](https://github.com/ikeee)
 
 ## 個人優勢
-- 8 年 IT 運維實戰（3 年政企批量部署 + 5 年學校資訊化獨立操盤），能一人撐起整個 IT 部門
-- 2024–2026 年深度使用 AI 編程工具（Claude Code），獨立完成 10+ 個全棧項目，覆蓋 Python / TypeScript / Rust / Docker
-- 擅長用開源工具零成本搭建企業級系統——13 個項目中 10 個為自建方案
-- 有過 15 年創業經驗（1997–2008），懂成本控制、需求優先級、用戶視角
+
+8 年 IT 運維實戰（3 年政企批量部署 + 5 年學校資訊化獨立操盤），能一人撐起整個 IT 部門。2024–2026 年深度使用 AI 編程工具（Claude Code），獨立完成 10+ 全棧項目。擅長開源工具零成本搭建企業級系統，13 個項目中 10 個為自建方案。有過 15 年創業經驗（1997–2008），懂成本控制、需求優先級、用戶視角。
 
 ## 工作經歷
-### 深圳大學附屬教育集團外國語中學 · 資訊化負責人（2020.09 – 至今）
-獨立負責全校 IT 基礎設施的規劃、建設與運維。一人完成從需求調研 → 選型部署 → 日常運維 → 用戶培訓。
-- **搭建 11 個校內業務系統**（課件同步 / 視頻會議 / 校園直播 / 門戶導航 / 知識庫 / 設備管理），服務全校 100+ 教師，全部開源自建，零商業軟件採購
-- **IT 文檔體系**（MkDocs + Wiki.js），教師自助查詢，運維諮詢量明顯下降
-- **3D 體感互動牆**（GitHub 開源）：MediaPipe Pose + Three.js 純前端方案，驅動學校架空層 LED 大屏
-- **課件自動同步系統**（GitHub 開源）：Shell + rsync + NAS，已穩定運行 2 年
 
-### 中科創威 · IT 運維工程師（2017.03 – 2020.07）
-政企客戶桌面批量部署與伺服器運維，形成標準化 SOP 體系，從「管一台機器」升級到「管一批機器」。
+<div style="display:flex;justify-content:space-between"><strong>深圳大學附屬教育集團外國語中學 · 資訊化負責人</strong><span>2020.09 – 至今</span></div>
 
-### 自主創業 · 網吧連鎖（1997 – 2008）
-從 1 家擴展至 6 家連鎖，獨立完成選址、網絡部署（百兆→千兆）、伺服器搭建與營運。2008 年主動退出轉型 IT。
+獨立負責全校 IT 基礎設施規劃、建設與運維，一人完成需求調研 → 選型部署 → 日常運維 → 用戶培訓全鏈路。
+
+- 搭建 11 個校內業務系統（課件同步 / 視頻會議 / 校園直播 / 門戶導航 / 知識庫 / 設備管理），服務全校 100+ 教師，全部開源自建
+- 建立 IT 文檔體系（MkDocs + Wiki.js），教師自助查詢，日常運維諮詢量明顯下降
+- 3D 體感互動牆（GitHub 開源）：MediaPipe Pose + Three.js 純前端驅動學校架空層 LED 大屏
+- 課件自動同步系統（GitHub 開源）：Shell + rsync + NAS，教師端一鍵推送班級終端自動拉取，穩定運行 2 年
+
+<div style="display:flex;justify-content:space-between"><strong>中科創威 · IT 運維工程師</strong><span>2017.03 – 2020.07</span></div>
+
+政企客戶桌面批量部署與伺服器運維，形成標準化 SOP 體系。
+
+<div style="display:flex;justify-content:space-between"><strong>自主創業 · 網吧連鎖</strong><span>1997 – 2008</span></div>
+
+從 1 家擴展至 6 家連鎖，獨立完成選址、網絡部署（百兆→千兆）、伺服器搭建與營運。2008 年行業下行前主動退出，轉型 IT。
 
 ## 項目亮點
-### AI 驅動的工作流自動化（2026.03 – 至今）
+
+<div style="display:flex;justify-content:space-between"><strong>AI 驅動的工作流自動化</strong><span>2026.03 – 至今</span></div>
+
 利用 Claude Code 等 AI 工具構建自動化開發工作流：
-- **教案自動生成引擎**：LLM + Qdrant RAG（BGE-large-zh），10 模組結構化教案，覆蓋 6 學科，50+ 質檢規則。備課 2h→5min，通過率 90%+
+
+- **教案自動生成引擎**：LLM + Qdrant RAG（BGE-large-zh），10 模組結構化教案，覆蓋 6 學科，50+ 質檢規則。備課 2h→5min，A/B 級通過率 90%+
 - **互動課件系統**：React + TypeScript + Vite，11 種佈局組件，已交付數學、英語 12 課時。自研 slide-review.py 質檢工具
 - **微服務集群**：Docker Compose 單機編排 6+ 容器，Nginx 反向代理，SSH + base64 pipe 自建部署管線
-- **知識庫系統**：純前端靜態站（19KB），雙索引自動同步，定時健康檢查
+- **知識庫系統**：純前端靜態站（19KB），雙索引自動同步，定時健康檢查腳本
 
-### 開源貢獻
-- **[OpenMAIC](https://github.com/THU-MAIC/OpenMAIC)**（清華 AI 課堂，JCST 2026，1.5k+ Star）：77 commits，3 PR 合入，13+ Issues。發現並修復 Qwen ASR 關鍵 Bug（MIME 錯誤，Fixes #76），搭建 Vitest（139 單元測試）
-- **[花箋 Floral Notepaper](https://github.com/Achilng/floral-notepaper)**（Tauri 2 + React 19 + Rust）：DeepSeek 翻譯引擎、中英雙向翻譯、Windows 優化精簡 ~700 行
-- **個人開源項目**：Teacher-Folder / Photos-Wall-3D / PPT-Resource-Hub
+<div style="display:flex;justify-content:space-between"><strong>開源貢獻</strong><span></span></div>
+
+- **[OpenMAIC](https://github.com/THU-MAIC/OpenMAIC)**（清華 AI 課堂，JCST 2026，1.5k+ Star）：77 commits，3 PR 合入，13+ Issues。發現並修復 Qwen ASR 關鍵 Bug（MIME 錯誤導致音頻解碼失敗，Fixes #76），搭建 Vitest 測試框架（139 單元測試）
+- **[花箋 Floral Notepaper](https://github.com/Achilng/floral-notepaper)**（Tauri 2 + React 19 + Rust）：DeepSeek 翻譯引擎、中英雙向翻譯、Windows 平台優化精簡 ~700 行代碼
+- **個人開源項目**：Teacher-Folder（課件同步）/ Photos-Wall-3D（體感互動牆）/ PPT-Resource-Hub（課件資源平台）
 
 ## 技能
-| 類別 | 具體技能 |
-|------|---------|
-| 編程語言 | Python · TypeScript · Rust · Shell（Bash / PowerShell） |
-| 前端 | React · Next.js · Vite · HTML5 Canvas · Three.js |
-| 後端 / AI | Qdrant (RAG) · LangGraph · MQTT · REST API · LLM Prompt Engineering |
-| 運維 / 基礎設施 | Docker Compose · Nginx 反向代理 · SSH 部署 · iptables · 群暉 NAS · OpenWrt |
-| 工具鏈 | Git · GitHub Actions · Linux (Debian/Ubuntu) · Windows Server |
 
-## 教育背景
-- 高中學歷（寮步中學高中部），持續通過實際項目驅動自學
+- **編程語言**：Python · TypeScript · Rust · Shell（Bash / PowerShell）
+- **前端**：React · Next.js · Vite · HTML5 Canvas · Three.js
+- **後端 / AI**：Qdrant (RAG) · LangGraph · MQTT · REST API · LLM Prompt Engineering
+- **運維 / 基礎設施**：Docker Compose · Nginx · SSH 部署 · iptables · 群暉 NAS · OpenWrt
+- **工具鏈**：Git · GitHub Actions · Linux (Debian/Ubuntu) · Windows Server
 
-## 附加資訊
-- **語言**：中文（粵語、普通話），英文（可閱讀技術文檔，借助 AI 工具寫作）
-- **GitHub**：[github.com/ikeee](https://github.com/ikeee) | **在線簡歷**：[ikeee.github.io/A1Q2/resume.html](https://ikeee.github.io/A1Q2/resume.html)
+## 教育背景 & 附加資訊
+
+高中學歷（寮步中學高中部），持續通過實際項目驅動自學 · 中文（粵語、普通話），英文可閱讀技術文檔 · [github.com/ikeee](https://github.com/ikeee) · [在線簡歷](https://ikeee.github.io/A1Q2/resume.html)
 <div style="page-break-before: always;"></div>
 
 # 附錄一：校園資訊化項目詳情（11 項）
