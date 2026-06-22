@@ -225,7 +225,7 @@ A development and operations system independently built using AI programming too
 
 ## Education
 
-- Associate degree (Computer-related major)
+- High school diploma (Liaobu Middle School, Senior High Division)
 - Continuous self-study: Project-driven learning; in the past two years, systematically practiced Rust, TypeScript, Docker, LLM application development, and other tech stacks
 
 ---

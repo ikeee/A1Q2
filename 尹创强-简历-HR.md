@@ -1,0 +1,83 @@
+# 尹创强 — 个人简历
+
+**求职意向：运维开发工程师 / IT 基础设施负责人**
+
+📞 18681121363 | 📧 ikeee@qq.com | 🔗 [github.com/ikeee](https://github.com/ikeee)
+
+---
+
+## 个人优势
+
+- 8 年 IT 运维实战（3 年政企批量部署 + 5 年学校信息化独立操盘），能一人撑起整个 IT 部门
+- 2024–2026 年深度使用 AI 编程工具（Claude Code），独立完成 10+ 个全栈项目，覆盖 Python/TypeScript/Rust/Docker
+- 擅长用开源工具零成本搭建企业级系统——13 个项目中 10 个为自建方案
+- 有过 15 年创业经验（1997–2008），懂成本控制、需求优先级、用户视角
+
+---
+
+## 工作经历
+
+### 深圳大学附属教育集团外国语中学 · 信息化负责人（2020.09 – 至今）
+
+独立负责全校 IT 基础设施的规划、建设与运维。一人完成从需求调研 → 选型部署 → 日常运维 → 用户培训的全链路。
+
+**主要成果：**
+
+- **搭建 11 个校内业务系统**，覆盖课件同步、视频会议、校园直播、门户导航、知识库、设备管理等场景，服务全校 100+ 教师。全部采用开源方案自建，零商业软件采购成本
+- **建立 IT 文档体系**（MkDocs 手册 + Wiki.js 设备指南），教师可自助查询，日常运维咨询量明显下降
+- **3D 体感互动墙**（GitHub 开源）：MediaPipe Pose + Three.js 纯前端方案，驱动学校架空层 LED 大屏，学生课间体感互动
+- **课件自动同步系统**（GitHub 开源）：Shell + rsync + NAS，教师端一键推送，班级终端自动拉取，已稳定运行 2 年
+
+### 中科创威 · IT 运维工程师（2017.03 – 2020.07）
+
+负责政企客户的桌面环境批量部署与服务器日常运维。形成标准化 SOP 体系，从"管一台机器"升级到"管一批机器"。
+
+### 自主创业 · 网吧连锁（1997 – 2008）
+
+从 1 家起步扩展至 6 家连锁，独立完成选址、网络部署（百兆→千兆）、服务器搭建与日常运营。2008 年行业下行前主动退出，转型 IT 技术。
+
+---
+
+## 项目亮点
+
+### AI 驱动的工作流自动化（2026.03 – 至今）
+
+利用 Claude Code 等 AI 工具构建自动化开发工作流，独立完成以下项目：
+
+- **教案自动生成引擎**：LLM + Qdrant 向量数据库（BGE-large-zh），实现 10 模块结构化教案自动生成。覆盖 6 个学科，50+ 条自动化质检规则。将教师备课时间从 2 小时压缩到 5 分钟，质检通过率 90%+
+- **互动课件系统**：React + TypeScript + Vite 构建，设计 11 种可复用布局组件。已交付数学、英语共 12 课时课件。自研 slide-review.py 自动质检工具
+- **微服务集群**：Docker Compose 单机编排 6+ 容器（Nginx/PostgreSQL/MQTT/Python），全部通过反向代理暴露，SSH + base64 pipe 自建部署管线
+- **知识库系统**：纯前端静态站（19KB/693行），双索引自动同步，定时健康检查脚本
+
+### 开源贡献
+
+- **[OpenMAIC](https://github.com/THU-MAIC/OpenMAIC)**（清华大学 AI 课堂平台，JCST 2026 发表，1.5k+ ⭐）：77 个 commits，3 个 PR 合入，提交 13+ 个 Issues。发现并修复 Qwen ASR 语音识别 Bug（MIME 类型错误导致音频解码失败），搭建 Vitest 测试框架（139 个单元测试）
+- **[花笺 Floral Notepaper](https://github.com/Achilng/floral-notepaper)**（Tauri 2 + React 19 + Rust 桌面便签）：DeepSeek API 翻译引擎升级、中英双向翻译、Windows 平台优化精简 ~700 行代码
+- **个人开源项目**：Teacher-Folder（课件同步）、Photos-Wall-3D（体感互动墙）、PPT-Resource-Hub
+
+---
+
+## 技能
+
+| 类别 | 具体技能 |
+|------|---------|
+| **编程语言** | Python · TypeScript · Rust · Shell（Bash/PowerShell） |
+| **前端** | React · Next.js · Vite · HTML5 Canvas · Three.js |
+| **后端 / AI** | Qdrant (RAG) · LangGraph · MQTT · REST API · LLM Prompt Engineering |
+| **运维 / 基础设施** | Docker Compose · Nginx 反向代理 · SSH 部署 · iptables · 群晖 NAS · OpenWrt |
+| **工具链** | Git · GitHub Actions · Linux (Debian/Ubuntu) · Windows Server |
+
+---
+
+## 教育背景
+
+- 高中学历（寮步中学高中部）
+- 持续自学：通过实际项目驱动学习，近两年系统实践了 Rust、TypeScript、Docker、LLM 应用开发等技术栈
+
+---
+
+## 附加信息
+
+- **语言**：中文（粤语、普通话），英文（可阅读技术文档，借助 AI 工具写作）
+- **GitHub**：[github.com/ikeee](https://github.com/ikeee)（个人项目 + 开源贡献记录）
+- **在线简历**：[ikeee.github.io/A1Q2/resume.html](https://ikeee.github.io/A1Q2/resume.html)（含英文版）
