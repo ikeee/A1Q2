@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="title">尹创强 · 简历 — 系统架构师 / AI 解决方案负责人</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d1117;--surface:#161b22;--border:#30363d;
+  --text:#c9d1d9;--text2:#8b949e;--accent:#58a6ff;--green:#3fb950;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+
+.lang-bar{position:fixed;top:14px;right:18px;z-index:100;display:flex;gap:4px}
+.lang-btn{padding:3px 10px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text2);font-size:11px;cursor:pointer;font-family:inherit}
+.lang-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+
+.container{max-width:900px;margin:0 auto;padding:44px 24px}
+
+/* Header */
+.header{margin-bottom:28px}
+.header h1{font-size:34px;font-weight:700;color:#f0f6fc;letter-spacing:-0.5px}
+.header .target{font-size:15px;color:var(--accent);margin-top:6px;font-weight:500}
+.header .contact{font-size:14px;color:var(--text2);margin-top:10px;display:flex;gap:20px;flex-wrap:wrap}
+
+/* Summary */
+.summary{font-size:14px;color:var(--text2);margin-bottom:30px;padding:16px 20px;background:var(--surface);border-radius:10px;border:1px solid var(--border);line-height:1.75}
+
+/* Section */
+.sec{margin-bottom:30px}
+.sec-title{font-size:19px;font-weight:600;color:#f0f6fc;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* Work experience */
+.exp{margin-bottom:14px;padding:16px 20px;background:var(--surface);border-radius:10px;border:1px solid var(--border)}
+.exp-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.exp-org{font-size:16px;font-weight:600;color:#f0f6fc}
+.exp-time{font-size:12px;color:var(--text2)}
+.exp-role{font-size:13px;color:var(--accent);margin-bottom:6px}
+.exp-desc{font-size:13px;color:var(--text2);line-height:1.7}
+.exp ul{list-style:none;margin-top:6px;display:grid;grid-template-columns:1fr 1fr;gap:3px 14px}
+.exp li{font-size:13px;color:var(--text2);padding:2px 0}
+.exp li::before{content:'▸ ';color:var(--green);font-size:10px}
+@media(max-width:600px){.exp ul{grid-template-columns:1fr}}
+
+/* Project */
+.proj{margin-bottom:14px;padding:16px 20px;background:var(--surface);border-radius:10px;border:1px solid var(--border)}
+.proj-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.proj-name{font-size:16px;font-weight:600;color:#f0f6fc}
+.proj-name a{color:inherit}
+.proj-time{font-size:12px;color:var(--text2)}
+.proj-desc{font-size:13px;color:var(--text2);margin-bottom:6px;line-height:1.7}
+.proj-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px}
+.tag{padding:2px 10px;border-radius:10px;font-size:11px;font-weight:500;background:#21262d;color:var(--text2);border:1px solid var(--border)}
+.proj-highlight{margin-top:6px;font-size:12px;color:var(--text3);font-style:italic}
+.proj-highlight::before{content:'💡 '}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.sk{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-align:center}
+.sk .cat{font-size:14px;font-weight:600;color:#f0f6fc;margin-bottom:5px}
+.sk .items{font-size:12px;color:var(--text2);line-height:1.7}
+
+.footer{text-align:center;padding:28px 20px;color:var(--text3);font-size:12px;border-top:1px solid var(--border);margin-top:12px;line-height:1.8}
+
+@media print{
+  body{background:#fff;color:#222}
+  .lang-bar{display:none}
+  .card{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="sw('zh-CN')" id="bzh-CN">简</button>
+  <button class="lang-btn" onclick="sw('zh-HK')" id="bzh-HK">繁</button>
+  <button class="lang-btn" onclick="sw('en')" id="ben">EN</button>
+</div>
+
+<div class="container">
+
+<!-- ====== HEADER ====== -->
+<div class="header">
+  <h1 data-i18n="name">尹创强</h1>
+  <div class="target" data-i18n="target">求职意向：系统架构师 / AI 解决方案负责人</div>
+  <div class="contact">
+    <span>📞 18681121363</span>
+    <span>📧 ikeee@qq.com</span>
+    <a href="https://github.com/ikeee" target="_blank">github.com/ikeee</a>
+    <a href="https://ikeee.github.io/A1Q2/" target="_blank" data-i18n="portfolio">在线作品集</a>
+  </div>
+</div>
+
+<!-- ====== 个人摘要 ====== -->
+<div class="summary" data-i18n="summary">
+  <strong>15 年连续创业 + 3 年政企 IT 运维 + 3 年 AI 系统架构。</strong>白手起家从 1 家网吧发展到 6 家连锁（1997–2008）；后转型企业 IT 桌面部署与服务器运维（2017–2020）；2020 年起在深圳大学附属教育集团外国语中学独立负责全校信息化建设。<br>
+  <strong>核心标签：</strong>零云成本架构 · 一人可运维 · 开源工具拼装 · Multi-Agent 团队管理 · 从需求到交付全链路闭环
+</div>
+
+<!-- ====== 工作经历 ====== -->
+<div class="sec">
+  <div class="sec-title"><span class="dot"></span><span data-i18n="s_work">工作经历</span></div>
+
+  <div class="exp">
+    <div class="exp-head">
+      <span class="exp-org" data-i18n="w3_org">深圳大学附属教育集团外国语中学</span>
+      <span class="exp-time">2020 – 至今</span>
+    </div>
+    <div class="exp-role" data-i18n="w3_role">电教员 — 全校信息化唯一操盘手</div>
+    <div class="exp-desc" data-i18n="w3_desc">独立承担全校计算机、网络、多媒体设备的规划、选型、部署与运维。所有系统自建在校园内网，零云服务成本、零外部依赖，数据不出校门。总计 13 个项目中 10 个为自建开源方案，零商业软件采购成本。</div>
+    <ul>
+      <li data-i18n="w3_li1">设计并落地 11 个校园信息化平台，覆盖教学、办公、宣传、会议、直播、互动六大场景</li>
+      <li data-i18n="w3_li2">指挥三 AI 团队（Hermes/Nova/Qwen）完成知识库系统与课件交付流水线</li>
+      <li data-i18n="w3_li3">全局架构 + 一人运维 + 最低成本解决最多问题</li>
+    </ul>
+  </div>
+
+  <div class="exp">
+    <div class="exp-head">
+      <span class="exp-org" data-i18n="w2_org">中科创威</span>
+      <span class="exp-time">2017 – 2020</span>
+    </div>
+    <div class="exp-role" data-i18n="w2_role">桌面部署与服务器运维</div>
+    <div class="exp-desc" data-i18n="w2_desc">Windows/Linux 双平台批量桌面部署、服务器日常巡检与故障排查、运维操作 SOP 化。积累了工程化思维——标准化、文档化、可复制，为后续独立操盘全校 IT 打下基础。</div>
+  </div>
+
+  <div class="exp">
+    <div class="exp-head">
+      <span class="exp-org" data-i18n="w1_org">网吧创业</span>
+      <span class="exp-time">1997 – 2008</span>
+    </div>
+    <div class="exp-role" data-i18n="w1_role">创始人 & 操盘手 — 从 1 家到 6 家连锁</div>
+    <div class="exp-desc" data-i18n="w1_desc">全周期独立操盘：选址、网络部署（百兆→千兆）、服务器搭建、计费系统维护、运营管理、资产退出。核心认知：系统不是技术问题，是人的问题——选址比机器配置重要，运营比技术架构重要。</div>
+  </div>
+</div>
+
+<!-- ====== 校园信息化项目 ====== -->
+<div class="sec">
+  <div class="sec-title"><span class="dot"></span><span data-i18n="s_campus">校园信息化项目（11 项，10 个自建开源方案）</span></div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name"><a href="https://github.com/ikeee/teacher-folder" target="_blank">Teacher-Folder 课件同步系统</a></span>
+    </div>
+    <div class="proj-tags"><span class="tag">Shell</span><span class="tag">rsync</span><span class="tag">NAS SMB</span><span class="tag">Windows/Mac</span></div>
+    <div class="proj-desc" data-i18n="p1_desc">教师端脚本推送 → NAS 集中存储 → 班级一体机自动拉取闭环。全校 2 年稳定运行，零运维成本。解决 U 盘拷课件痛点，教师零学习成本接入即用。</div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name" data-i18n="p2_name">校园门户导航（192.168.30.99） + MkDocs 信息化手册 + Wiki.js 设备指南</span>
+    </div>
+    <div class="proj-tags"><span class="tag">Nginx</span><span class="tag">MkDocs</span><span class="tag">Wiki.js</span><span class="tag">Markdown</span></div>
+    <div class="proj-desc" data-i18n="p2_desc">全校统一入口 + IT 知识文档化 + 教室设备图文指南，形成"门户导航→自助查询→图文操作"三层 IT 服务体系。</div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name" data-i18n="p3_name">MediaCMS 视频 Hub + Jitsi Meet 视频会议 + Owncast 直播</span>
+    </div>
+    <div class="proj-tags"><span class="tag">Docker</span><span class="tag">WebRTC</span><span class="tag">RTMP/HLS</span><span class="tag">Django</span></div>
+    <div class="proj-desc" data-i18n="p3_desc">自建视频三件套：公开课点播平台 + 校内视频会议（无用户数限制）+ 校园活动直播（运动会/文艺汇演一键推流），全部内网部署零流量费。</div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name" data-i18n="p4_name">Photos-Wall-3D LED 体感互动墙</span>
+    </div>
+    <div class="proj-tags"><span class="tag">MediaPipe Pose</span><span class="tag">Three.js</span><span class="tag">WebAssembly</span><span class="tag">纯前端</span></div>
+    <div class="proj-desc" data-i18n="p4_desc">学校架空层 LED 大屏互动系统。摄像头实时捕捉人体动作，MediaPipe 识别 33 个关键点，Three.js 渲染 3D 照片墙跟随。纯前端方案，一台普通 PC 驱动 LED 大屏。</div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name" data-i18n="p5_name">Memos 校园动态 + 奇安信壁纸推送 + PPT 课件资源 Hub</span>
+    </div>
+    <div class="proj-tags"><span class="tag">Go</span><span class="tag">SQLite</span><span class="tag">天擎 V10</span><span class="tag">GitHub</span></div>
+    <div class="proj-desc" data-i18n="p5_desc">轻量校园媒体三件套：Memos 随手发图文动态（三AI 自动发布）、天擎策略全员壁纸推送、PPT 资源 GitHub 共享平台。</div>
+  </div>
+</div>
+
+<!-- ====== AI 系统架构 & 产品开发 ====== -->
+<div class="sec">
+  <div class="sec-title"><span class="dot"></span><span data-i18n="s_ai">AI 系统架构 & 产品开发</span></div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name" data-i18n="p6_name">三AI 备课助手 — 10 模块教案自动生成引擎</span>
+      <span class="proj-time">2026.04–06</span>
+    </div>
+    <div class="proj-tags"><span class="tag">LLM</span><span class="tag">Qdrant RAG</span><span class="tag">BGE-large-zh</span><span class="tag">Python</span><span class="tag">Docker</span></div>
+    <div class="proj-desc" data-i18n="p6_desc">覆盖语数英物化生 6 学科，50+ 自动化质检规则。文理分科策略（理科实验→归纳，文科情境→表达），Qdrant + BGE 向量化教材 RAG 精准引用课标。</div>
+    <ul class="exp-list" style="margin-top:6px;display:grid;grid-template-columns:1fr 1fr;gap:3px 14px">
+      <li data-i18n="p6_li1" style="font-size:12px;color:var(--text2)">教案生成：2h（手写）→ 5min（AI 辅助）</li>
+      <li data-i18n="p6_li2" style="font-size:12px;color:var(--text2)">A/B/C/D 四级质检，A/B 级通过率 90%+</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name" data-i18n="p7_name">open-slide 互动课件系统 + PPT 自动渲染流水线</span>
+      <span class="proj-time">2026.05–06</span>
+    </div>
+    <div class="proj-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span class="tag">PptxGenJS</span><span class="tag">Remotion</span></div>
+    <div class="proj-desc" data-i18n="p7_desc">11 种布局组件体系，已交付数学、英文共 12 课时课件。自研 slide-review.py 质检工具，教案编辑器（浏览器 Markdown，零代码修改）。教案 → 结构化标签 → PPT 自动渲染 → Nginx 交付。</div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name" data-i18n="p8_name">三AI Multi-Agent 协作系统</span>
+      <span class="proj-time">2026.04–06</span>
+    </div>
+    <div class="proj-tags"><span class="tag">MQTT</span><span class="tag">Mosquitto</span><span class="tag">Python</span><span class="tag">SSE</span><span class="tag">cron</span></div>
+    <div class="proj-desc" data-i18n="p8_desc">设计三角分工：Hermes（架构/全栈）+ Nova（前端/课件）+ Qwen（研究/文档）。三通道通信（MQTT 群聊 + Shared Brain 知识中枢 + HTTP API 任务派发），LWT 遗嘱消息自动检测 Agent 状态，cron 每日交叉阅读提醒。</div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name" data-i18n="p9_name">微服务集群 — Docker 容器化部署（192.168.30.97）</span>
+      <span class="proj-time">2026.04–06</span>
+    </div>
+    <div class="proj-tags"><span class="tag">Docker Compose</span><span class="tag">Nginx</span><span class="tag">1Panel</span><span class="tag">SSH</span><span class="tag">PostgreSQL</span></div>
+    <div class="proj-desc" data-i18n="p9_desc">单机编排 6+ 容器（OpenClaw / QwenPaw / Shared Brain / Mosquitto / OpenResty / Memos），全部 nginx 反向代理，零端口直接暴露，SSH + base64 pipe 自建部署管线。</div>
+  </div>
+</div>
+
+<!-- ====== 开源贡献 ====== -->
+<div class="sec">
+  <div class="sec-title"><span class="dot"></span><span data-i18n="s_os">开源贡献</span></div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name"><a href="https://github.com/THU-MAIC/OpenMAIC" target="_blank">OpenMAIC</a> — 清华 AI 互动课堂（JCST 2026, 1.5k+ ⭐）</span>
+      <span class="proj-time">2026.03–06</span>
+    </div>
+    <div class="proj-tags"><span class="tag">Next.js 16</span><span class="tag">TypeScript</span><span class="tag">LangGraph</span><span class="tag">Vitest</span></div>
+    <div class="proj-desc" data-i18n="p10_desc">77 commits，3 PR merge，13+ Issues。发现并修复 Qwen ASR 关键 Bug（MIME 类型错误 WebM→WAV，Fixes #76），搭建 Vitest + 139 单元测试。</div>
+  </div>
+
+  <div class="proj">
+    <div class="proj-head">
+      <span class="proj-name"><a href="https://github.com/Achilng/floral-notepaper" target="_blank">花笺 Floral Notepaper</a> — Tauri 2 + React 19 + Rust 桌面便签</span>
+      <span class="proj-time">2026.06</span>
+    </div>
+    <div class="proj-tags"><span class="tag">Tauri 2</span><span class="tag">Rust</span><span class="tag">React 19</span><span class="tag">DeepSeek API</span></div>
+    <div class="proj-desc" data-i18n="p11_desc">DeepSeek 翻译引擎升级、中英双向翻译、粘贴自动翻译+生词本、Windows 平台精简 ~700 行、CI/CD 发布优化。</div>
+  </div>
+</div>
+
+<!-- ====== 核心能力 ====== -->
+<div class="sec">
+  <div class="sec-title"><span class="dot"></span><span data-i18n="s_skills">核心能力</span></div>
+  <div class="skills">
+    <div class="sk"><div class="cat" data-i18n="sk1_cat">🏗️ 架构设计</div><div class="items" data-i18n="sk1_items">零云成本架构 · 一人可运维 · 开源拼装落地 · 内网自建全链路</div></div>
+    <div class="sk"><div class="cat" data-i18n="sk2_cat">🤖 AI 系统</div><div class="items" data-i18n="sk2_items">Multi-Agent 编排 · RAG (Qdrant+BGE) · Prompt Engineering · LLM 集成</div></div>
+    <div class="sk"><div class="cat" data-i18n="sk3_cat">🖥️ 全栈开发</div><div class="items" data-i18n="sk3_items">React · TypeScript · Python · Rust · Tauri · Shell · PowerShell</div></div>
+    <div class="sk"><div class="cat" data-i18n="sk4_cat">🐳 DevOps</div><div class="items" data-i18n="sk4_items">Docker Compose · Nginx · SSH 部署 · iptables · GitHub Actions · NAS</div></div>
+    <div class="sk"><div class="cat" data-i18n="sk5_cat">🎯 产品思维</div><div class="items" data-i18n="sk5_items">需求洞察→功能闭环 · 减少操作步骤 · 真实场景验证 · 教师可用性标准</div></div>
+    <div class="sk"><div class="cat" data-i18n="sk6_cat">✅ 工程信誉</div><div class="items" data-i18n="sk6_items">三问原则：一人能维护？断电能用？三年后要改？交付即过关</div></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <span data-i18n="ft">尹创强 · 18681121363 · ikeee@qq.com · github.com/ikeee · 深圳</span>
+</footer>
+
+</div>
+
+<script>
+const I={
+'zh-CN':{
+title:'尹创强 · 简历 — 系统架构师 / AI 解决方案负责人',
+name:'尹创强',target:'求职意向：系统架构师 / AI 解决方案负责人',portfolio:'在线作品集',
+summary:'<strong>15 年连续创业 + 3 年政企 IT 运维 + 3 年 AI 系统架构。</strong>白手起家从 1 家网吧发展到 6 家连锁（1997–2008）；后转型企业 IT 桌面部署与服务器运维（2017–2020）；2020 年起在深圳大学附属教育集团外国语中学独立负责全校信息化建设。<br><strong>核心标签：</strong>零云成本架构 · 一人可运维 · 开源工具拼装 · Multi-Agent 团队管理 · 从需求到交付全链路闭环',
+s_work:'工作经历',
+w3_org:'深圳大学附属教育集团外国语中学',w3_role:'电教员 — 全校信息化唯一操盘手',w3_desc:'独立承担全校计算机、网络、多媒体设备的规划、选型、部署与运维。所有系统自建在校园内网，零云服务成本、零外部依赖，数据不出校门。总计 13 个项目中 10 个为自建开源方案，零商业软件采购成本。',
+w3_li1:'设计并落地 11 个校园信息化平台，覆盖教学、办公、宣传、会议、直播、互动六大场景',w3_li2:'指挥三 AI 团队（Hermes/Nova/Qwen）完成知识库系统与课件交付流水线',w3_li3:'全局架构 + 一人运维 + 最低成本解决最多问题',
+w2_org:'中科创威',w2_role:'桌面部署与服务器运维',w2_desc:'Windows/Linux 双平台批量桌面部署、服务器日常巡检与故障排查、运维操作 SOP 化。积累了工程化思维——标准化、文档化、可复制，为后续独立操盘全校 IT 打下基础。',
+w1_org:'网吧创业',w1_role:'创始人 & 操盘手 — 从 1 家到 6 家连锁',w1_desc:'全周期独立操盘：选址、网络部署（百兆→千兆）、服务器搭建、计费系统维护、运营管理、资产退出。核心认知：系统不是技术问题，是人的问题。',
+s_campus:'校园信息化项目（11 项，10 个自建开源方案）',
+p1_desc:'教师端脚本推送 → NAS 集中存储 → 班级一体机自动拉取闭环。全校 2 年稳定运行，零运维成本。解决 U 盘拷课件痛点，教师零学习成本接入即用。',
+p2_name:'校园门户导航 + MkDocs 信息化手册 + Wiki.js 设备指南',p2_desc:'全校统一入口 + IT 知识文档化 + 教室设备图文指南，形成"门户导航→自助查询→图文操作"三层 IT 服务体系。',
+p3_name:'MediaCMS 视频 Hub + Jitsi Meet 视频会议 + Owncast 直播',p3_desc:'自建视频三件套：公开课点播平台 + 校内视频会议（无用户数限制）+ 校园活动直播（运动会/文艺汇演一键推流），全部内网部署零流量费。',
+p4_name:'Photos-Wall-3D LED 体感互动墙',p4_desc:'学校架空层 LED 大屏互动系统。摄像头实时捕捉人体动作，MediaPipe 识别 33 个关键点，Three.js 渲染 3D 照片墙跟随。纯前端方案，一台普通 PC 驱动 LED 大屏。',
+p5_name:'Memos 校园动态 + 奇安信壁纸推送 + PPT 课件资源 Hub',p5_desc:'轻量校园媒体三件套：Memos 随手发图文动态、天擎策略全员壁纸推送、PPT 资源 GitHub 共享平台。',
+s_ai:'AI 系统架构 & 产品开发',
+p6_name:'三AI 备课助手 — 10 模块教案自动生成引擎',p6_desc:'覆盖语数英物化生 6 学科，50+ 自动化质检规则。文理分科策略，Qdrant + BGE 向量化教材 RAG 精准引用课标。',
+p6_li1:'教案生成：2h（手写）→ 5min（AI 辅助）',p6_li2:'A/B/C/D 四级质检，A/B 级通过率 90%+',
+p7_name:'open-slide 互动课件系统 + PPT 自动渲染流水线',p7_desc:'11 种布局组件体系，已交付数学、英文共 12 课时课件。自研质检工具，教案编辑器（零代码修改）。教案 → 结构化标签 → PPT 自动渲染 → Nginx 交付。',
+p8_name:'三AI Multi-Agent 协作系统',p8_desc:'设计三角分工：Hermes（架构/全栈）+ Nova（前端/课件）+ Qwen（研究/文档）。三通道通信，LWT 遗嘱消息自动检测 Agent 状态，cron 每日交叉阅读。',
+p9_name:'微服务集群 — Docker 容器化部署（192.168.30.97）',p9_desc:'单机编排 6+ 容器（OpenClaw / QwenPaw / Shared Brain / Mosquitto / OpenResty / Memos），全部 nginx 反向代理，零端口直接暴露。',
+s_os:'开源贡献',
+p10_desc:'77 commits，3 PR merge，13+ Issues。发现并修复 Qwen ASR 关键 Bug（MIME 类型错误 WebM→WAV，Fixes #76），搭建 Vitest + 139 单元测试。',
+p11_desc:'DeepSeek 翻译引擎升级、中英双向翻译、粘贴自动翻译+生词本、Windows 平台精简 ~700 行、CI/CD 发布优化。',
+s_skills:'核心能力',
+sk1_cat:'🏗️ 架构设计',sk1_items:'零云成本架构 · 一人可运维 · 开源拼装落地 · 内网自建全链路',
+sk2_cat:'🤖 AI 系统',sk2_items:'Multi-Agent 编排 · RAG (Qdrant+BGE) · Prompt Engineering · LLM 集成',
+sk3_cat:'🖥️ 全栈开发',sk3_items:'React · TypeScript · Python · Rust · Tauri · Shell · PowerShell',
+sk4_cat:'🐳 DevOps',sk4_items:'Docker Compose · Nginx · SSH 部署 · iptables · GitHub Actions · NAS',
+sk5_cat:'🎯 产品思维',sk5_items:'需求洞察→功能闭环 · 减少操作步骤 · 真实场景验证 · 教师可用性标准',
+sk6_cat:'✅ 工程信誉',sk6_items:'三问原则：一人能维护？断电能用？三年后要改？交付即过关',
+ft:'尹创强 · 18681121363 · ikeee@qq.com · github.com/ikeee · 深圳'
+},
+'zh-HK':{
+title:'尹創強 · 簡歷 — 系統架構師 / AI 解決方案負責人',
+name:'尹創強',target:'求職意向：系統架構師 / AI 解決方案負責人',portfolio:'在線作品集',
+summary:'<strong>15 年連續創業 + 3 年政企 IT 運維 + 3 年 AI 系統架構。</strong>白手起家從 1 家網吧發展到 6 家連鎖（1997–2008）；後轉型企業 IT 桌面部署與伺服器運維（2017–2020）；2020 年起在深圳大學附屬教育集團外國語中學獨立負責全校信息化建設。<br><strong>核心標籤：</strong>零雲成本架構 · 一人可運維 · 開源工具拼裝 · Multi-Agent 團隊管理 · 從需求到交付全鏈路閉環',
+s_work:'工作經歷',
+w3_org:'深圳大學附屬教育集團外國語中學',w3_role:'電教員 — 全校信息化唯一操盤手',w3_desc:'獨立承擔全校計算機、網絡、多媒體設備的規劃、選型、部署與運維。所有系統自建在校園內網，零雲服務成本、零外部依賴，數據不出校門。總計 13 個項目中 10 個為自建開源方案，零商業軟件採購成本。',
+w3_li1:'設計並落地 11 個校園信息化平台，覆蓋教學、辦公、宣傳、會議、直播、互動六大場景',w3_li2:'指揮三 AI 團隊（Hermes/Nova/Qwen）完成知識庫系統與課件交付流水線',w3_li3:'全局架構 + 一人運維 + 最低成本解決最多問題',
+w2_org:'中科創威',w2_role:'桌面部署與伺服器運維',w2_desc:'Windows/Linux 雙平台批量桌面部署、伺服器日常巡檢與故障排查、運維操作 SOP 化。積累了工程化思維——標準化、文檔化、可複製，為後續獨立操盤全校 IT 打下基礎。',
+w1_org:'網吧創業',w1_role:'創始人 & 操盤手 — 從 1 家到 6 家連鎖',w1_desc:'全週期獨立操盤：選址、網絡部署（百兆→千兆）、伺服器搭建、計費系統維護、運營管理、資產退出。核心認知：系統不是技術問題，是人的問題。',
+s_campus:'校園信息化項目（11 項，10 個自建開源方案）',
+p1_desc:'教師端腳本推送 → NAS 集中存儲 → 班級一體機自動拉取閉環。全校 2 年穩定運行，零運維成本。解決 U 盤拷課件痛點，教師零學習成本接入即用。',
+p2_name:'校園門戶導航 + MkDocs 信息化手冊 + Wiki.js 設備指南',p2_desc:'全校統一入口 + IT 知識文檔化 + 教室設備圖文指南，形成「門戶導航→自助查詢→圖文操作」三層 IT 服務體系。',
+p3_name:'MediaCMS 視頻 Hub + Jitsi Meet 視頻會議 + Owncast 直播',p3_desc:'自建視頻三件套：公開課點播平台 + 校內視頻會議（無用戶數限制）+ 校園活動直播，全部內網部署零流量費。',
+p4_name:'Photos-Wall-3D LED 體感互動牆',p4_desc:'學校架空層 LED 大屏互動系統。攝像頭實時捕捉人體動作，MediaPipe 識別 33 個關鍵點，Three.js 渲染 3D 照片牆跟隨。純前端方案，一台普通 PC 驅動 LED 大屏。',
+p5_name:'Memos 校園動態 + 奇安信壁紙推送 + PPT 課件資源 Hub',p5_desc:'輕量校園媒體三件套：Memos 隨手發圖文動態、天擎策略全員壁紙推送、PPT 資源 GitHub 共享平台。',
+s_ai:'AI 系統架構 & 產品開發',
+p6_name:'三AI 備課助手 — 10 模塊教案自動生成引擎',p6_desc:'覆蓋語數英物化生 6 學科，50+ 自動化質檢規則。文理分科策略，Qdrant + BGE 向量化教材 RAG 精準引用課標。',
+p6_li1:'教案生成：2h（手寫）→ 5min（AI 輔助）',p6_li2:'A/B/C/D 四級質檢，A/B 級通過率 90%+',
+p7_name:'open-slide 互動課件系統 + PPT 自動渲染流水線',p7_desc:'11 種佈局組件體系，已交付數學、英文共 12 課時課件。自研質檢工具，教案編輯器（零代碼修改）。教案 → 結構化標籤 → PPT 自動渲染 → Nginx 交付。',
+p8_name:'三AI Multi-Agent 協作系統',p8_desc:'設計三角分工：Hermes（架構/全棧）+ Nova（前端/課件）+ Qwen（研究/文檔）。三通道通訊，LWT 遺囑消息自動檢測 Agent 狀態，cron 每日交叉閱讀。',
+p9_name:'微服務集群 — Docker 容器化部署（192.168.30.97）',p9_desc:'單機編排 6+ 容器（OpenClaw / QwenPaw / Shared Brain / Mosquitto / OpenResty / Memos），全部 nginx 反向代理，零端口直接暴露。',
+s_os:'開源貢獻',
+p10_desc:'77 commits，3 PR merge，13+ Issues。發現並修復 Qwen ASR 關鍵 Bug（MIME 類型錯誤 WebM→WAV，Fixes #76），搭建 Vitest + 139 單元測試。',
+p11_desc:'DeepSeek 翻譯引擎升級、中英雙向翻譯、粘貼自動翻譯+生詞本、Windows 平台精簡 ~700 行、CI/CD 發布優化。',
+s_skills:'核心能力',
+sk1_cat:'🏗️ 架構設計',sk1_items:'零雲成本架構 · 一人可運維 · 開源拼裝落地 · 內網自建全鏈路',
+sk2_cat:'🤖 AI 系統',sk2_items:'Multi-Agent 編排 · RAG (Qdrant+BGE) · Prompt Engineering · LLM 集成',
+sk3_cat:'🖥️ 全棧開發',sk3_items:'React · TypeScript · Python · Rust · Tauri · Shell · PowerShell',
+sk4_cat:'🐳 DevOps',sk4_items:'Docker Compose · Nginx · SSH 部署 · iptables · GitHub Actions · NAS',
+sk5_cat:'🎯 產品思維',sk5_items:'需求洞察→功能閉環 · 減少操作步驟 · 真實場景驗證 · 教師可用性標準',
+sk6_cat:'✅ 工程信譽',sk6_items:'三問原則：一人能維護？斷電能用？三年後要改？交付即過關',
+ft:'尹創強 · 18681121363 · ikeee@qq.com · github.com/ikeee · 深圳'
+},
+'en':{
+title:'Yin Chuangqiang · Resume — System Architect / AI Solution Lead',
+name:'Yin Chuangqiang',target:'Seeking: System Architect / AI Solution Lead',portfolio:'Online Portfolio',
+summary:'<strong>15 years serial entrepreneurship + 3 years enterprise IT + 3 years AI system architecture.</strong> Built from 1 internet cafe to a 6-store chain (1997–2008); transitioned to enterprise IT desktop deployment & server ops (2017–2020); since 2020, independently responsible for all IT infrastructure at a Shenzhen University-affiliated secondary school.<br><strong>Key tags:</strong> Zero-cloud-cost architecture · Single-maintainer ops · Open-source tooling integration · Multi-Agent team management · Full-cycle: requirements to delivery',
+s_work:'Work Experience',
+w3_org:'Shenzhen University Affiliated Foreign Language Secondary School',w3_role:'IT Technician — Sole Operator of All School IT',w3_desc:'Independently responsible for planning, procurement, deployment, and maintenance of all school computers, networks, and multimedia equipment. All systems self-hosted on campus intranet — zero cloud costs, zero external dependencies, data never leaves campus. 10 of 13 projects are self-built open-source solutions with zero commercial software costs.',
+w3_li1:'Designed and delivered 11 campus IT platforms covering teaching, administration, communications, conferencing, live streaming, and interactive displays',w3_li2:'Directed 3-AI team (Hermes/Nova/Qwen) to build knowledge base system and courseware delivery pipeline',w3_li3:'Holistic architecture + single-maintainer ops + maximum output with minimum cost',
+w2_org:'Zhongke Chuangwei',w2_role:'Desktop Deployment & Server Operations',w2_desc:'Batch desktop deployment across Windows/Linux, server inspection and troubleshooting, SOP-standardized operations. Developed engineering mindset — standardization, documentation, replicability — that became the foundation for later solo campus IT management.',
+w1_org:'Internet Cafe Startup',w1_role:'Founder & Operator — Grew from 1 to 6 chain stores',w1_desc:'Full-cycle independent operation: site selection, network deployment (100M→Gigabit), server setup, billing system maintenance, operations management, asset divestment. Core insight: systems are about people, not technology.',
+s_campus:'Campus IT Projects (11 projects, 10 self-built open-source)',
+p1_desc:'Teacher script push → NAS centralized storage → classroom terminal auto-pull loop. 2-year stable operation, zero maintenance cost. Solved USB-drive file transfer pain point; zero learning curve for teachers.',
+p2_name:'Campus Portal + MkDocs IT Handbook + Wiki.js Equipment Guide',p2_desc:'Unified school entry point + documented IT knowledge + illustrated equipment guides — a three-layer IT service system: portal navigation → self-service search → visual operation guides.',
+p3_name:'MediaCMS Video Hub + Jitsi Meet Conferencing + Owncast Live Streaming',p3_desc:'Self-hosted video trio: open-class VOD platform + internal video conferencing (no user limits) + campus event live streaming (sports day, performances — one-click push). All on intranet, zero bandwidth costs.',
+p4_name:'Photos-Wall-3D LED Interactive Wall',p4_desc:'School atrium LED interactive display. Real-time body tracking via camera, MediaPipe 33-keypoint pose detection, Three.js 3D photo wall following user gestures. Pure frontend — one standard PC drives the LED screen.',
+p5_name:'Memos Campus Feed + Qi-An-Xin Wallpaper Push + PPT Resource Hub',p5_desc:'Lightweight campus media trio: Memos for quick photo posts (automated via 3-AI), TianQing policy-based wallpaper push to all classroom screens, PPT resource sharing on GitHub.',
+s_ai:'AI System Architecture & Product Development',
+p6_name:'3-AI Lesson Prep Assistant — 10-Module Lesson Plan Engine',p6_desc:'Covers 6 subjects with 50+ automated QA rules. STEM vs Humanities content strategy, Qdrant + BGE vectorized textbook RAG for precise curriculum citation.',
+p6_li1:'Lesson generation: 2h (manual) → 5min (AI-assisted)',p6_li2:'A/B/C/D 4-tier QA, A/B pass rate 90%+',
+p7_name:'open-slide Courseware System + PPT Auto-Render Pipeline',p7_desc:'11 layout component patterns, delivered 12 lessons (Math + English). Custom QA tool, browser-based Markdown lesson editor. Lesson plan → structured tags → PPT auto-render → Nginx delivery.',
+p8_name:'3-AI Multi-Agent Collaboration System',p8_desc:'Designed triangle division: Hermes (Arch/Full-Stack) + Nova (Frontend) + Qwen (Research). 3-channel communication, LWT-based Agent status detection, cron-driven daily cross-reading.',
+p9_name:'Microservice Cluster — Docker Deployment (192.168.30.97)',p9_desc:'Orchestrated 6+ containers on a single machine (OpenClaw/QwenPaw/Shared Brain/Mosquitto/OpenResty/Memos), all behind nginx reverse proxy, zero direct port exposure.',
+s_os:'Open Source Contributions',
+p10_desc:'77 commits, 3 PR merges, 13+ issues. Discovered & fixed critical Qwen ASR bug (MIME mismatch WebM→WAV, Fixes #76). Built Vitest test infrastructure with 139 unit tests.',
+p11_desc:'DeepSeek translation engine upgrade, bidirectional CN↔EN, auto-translate on paste + vocabulary book, Windows platform optimization (~700 lines trimmed), CI/CD pipeline.',
+s_skills:'Core Competencies',
+sk1_cat:'🏗️ Architecture',sk1_items:'Zero-cloud-cost · Single-maintainer · Open-source integration · On-prem full stack',
+sk2_cat:'🤖 AI Systems',sk2_items:'Multi-Agent orchestration · RAG (Qdrant+BGE) · Prompt Engineering · LLM integration',
+sk3_cat:'🖥️ Full-Stack Dev',sk3_items:'React · TypeScript · Python · Rust · Tauri · Shell · PowerShell',
+sk4_cat:'🐳 DevOps',sk4_items:'Docker Compose · Nginx · SSH deploy · iptables · GitHub Actions · NAS',
+sk5_cat:'🎯 Product Thinking',sk5_items:'Needs→closed loop · Reduce friction · Real-scenario validation · Teacher-usability bar',
+sk6_cat:'✅ Engineering Trust',sk6_items:'Three questions: Can one person maintain it? Works offline? Still good in 3 years?',
+ft:'Yin Chuangqiang · +86 18681121363 · ikeee@qq.com · github.com/ikeee · Shenzhen'
+}};
+
+let lang='zh-CN';
+function sw(l){lang=l;document.documentElement.lang=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('b'+l).classList.add('active');
+  const t=I[l];document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.innerHTML=t[k]});
+  document.title=t['title'];localStorage.setItem('cv-lang',l);
+}
+(function(){const s=localStorage.getItem('cv-lang')||'zh-CN';sw(s)})();
+</script>
+</body>
+</html>
